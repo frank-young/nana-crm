@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Xenon Boostrap Admin Panel" />
+	<meta name="author" content="" />
+	
+	<title>Xenon - Sparklines</title>
+
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Arimo:400,700,400italic">
+	<link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
+	<link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/xenon-core.css">
+	<link rel="stylesheet" href="assets/css/xenon-forms.css">
+	<link rel="stylesheet" href="assets/css/xenon-components.css">
+	<link rel="stylesheet" href="assets/css/xenon-skins.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+
+	<script src="assets/js/jquery-1.11.1.min.js"></script>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+	
+	
+</head>
+<body class="page-body">
+
+	<div class="settings-pane">
+			
+		<a href="#" data-toggle="settings-pane" data-animate="true">
+			&times;
+		</a>
+		
+		<div class="settings-pane-inner">
+			
+			<div class="row">
+				
+				<div class="col-md-4">
+					
+					<div class="user-info">
+						
+						<div class="user-image">
+							<a href="extra-profile.html">
+								<img src="assets/images/user-2.png" class="img-responsive img-circle" />
+							</a>
+						</div>
+						
+						<div class="user-details">
+							
+							<h3>
+								<a href="extra-profile.html">John Smith</a>
+								
+								<!-- Available statuses: is-online, is-idle, is-busy and is-offline -->
+								<span class="user-status is-online"></span>
+							</h3>
+							
+							<p class="user-title">Web Developer</p>
+							
+							<div class="user-links">
+								<a href="extra-profile.html" class="btn btn-primary">Edit Profile</a>
+								<a href="extra-profile.html" class="btn btn-success">Upgrade</a>
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+				<div class="col-md-8 link-blocks-env">
+					
+					<div class="links-block left-sep">
+						<h4>
+							<span>Notifications</span>
+						</h4>
+						
+						<ul class="list-unstyled">
+							<li>
+								<input type="checkbox" class="cbr cbr-primary" checked="checked" id="sp-chk1" />
+								<label for="sp-chk1">Messages</label>
+							</li>
+							<li>
+								<input type="checkbox" class="cbr cbr-primary" checked="checked" id="sp-chk2" />
+								<label for="sp-chk2">Events</label>
+							</li>
+							<li>
+								<input type="checkbox" class="cbr cbr-primary" checked="checked" id="sp-chk3" />
+								<label for="sp-chk3">Updates</label>
+							</li>
+							<li>
+								<input type="checkbox" class="cbr cbr-primary" checked="checked" id="sp-chk4" />
+								<label for="sp-chk4">Server Uptime</label>
+							</li>
+						</ul>
+					</div>
+					
+					<div class="links-block left-sep">
+						<h4>
+							<a href="#">
+								<span>Help Desk</span>
+							</a>
+						</h4>
+						
+						<ul class="list-unstyled">
+							<li>
+								<a href="#">
+									<i class="fa-angle-right"></i>
+									Support Center
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa-angle-right"></i>
+									Submit a Ticket
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa-angle-right"></i>
+									Domains Protocol
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa-angle-right"></i>
+									Terms of Service
+								</a>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+				
+			</div>
+		
+		</div>
+		
+	</div>
+	
+	<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+			
+		<!-- Add "fixed" class to make the sidebar fixed always to the browser viewport. -->
+		<!-- Adding class "toggle-others" will keep only one menu item open at a time. -->
+		<!-- Adding class "collapsed" collapse sidebar root elements and show only icons. -->
+		<div class="sidebar-menu toggle-others fixed">
+			
+			<div class="sidebar-menu-inner">	
+				
+				<header class="logo-env">
+					
+					<!-- logo -->
+					<div class="logo">
+						<a href="dashboard-1.html" class="logo-expanded">
+							<img src="assets/images/logo@2x.png" width="80" alt="" />
+						</a>
+						
+						<a href="dashboard-1.html" class="logo-collapsed">
+							<img src="assets/images/logo-collapsed@2x.png" width="40" alt="" />
+						</a>
+					</div>
+					
+					<!-- This will toggle the mobile menu and will be visible only on mobile devices -->
+					<div class="mobile-menu-toggle visible-xs">
+						<a href="#" data-toggle="user-info-menu">
+							<i class="fa-bell-o"></i>
+							<span class="badge badge-success">7</span>
+						</a>
+						
+						<a href="#" data-toggle="mobile-menu">
+							<i class="fa-bars"></i>
+						</a>
+					</div>
+					
+					<!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->
+					<div class="settings-icon">
+						<a href="#" data-toggle="settings-pane" data-animate="true">
+							<i class="linecons-cog"></i>
+						</a>
+					</div>
+					
+								
+				</header>
+						
+				
+						
+				<ul id="main-menu" class="main-menu">
+					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+					<li>
+						<a href="dashboard-1.html">
+							<i class="linecons-cog"></i>
+							<span class="title">Dashboard</span>
+						</a>
+						<ul>
+							<li>
+								<a href="dashboard-1.html">
+									<span class="title">Dashboard 1</span>
+								</a>
+							</li>
+							<li>
+								<a href="dashboard-2.html">
+									<span class="title">Dashboard 2</span>
+								</a>
+							</li>
+							<li>
+								<a href="dashboard-3.html">
+									<span class="title">Dashboard 3</span>
+								</a>
+							</li>
+							<li>
+								<a href="dashboard-4.html">
+									<span class="title">Dashboard 4</span>
+								</a>
+							</li>
+							<li>
+								<a href="skin-generator.html">
+									<span class="title">Skin Generator</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="layout-variants.html">
+							<i class="linecons-desktop"></i>
+							<span class="title">Layouts</span>
+						</a>
+						<ul>
+							<li>
+								<a href="layout-variants.html">
+									<span class="title">Layout Variants &amp; API</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-collapsed-sidebar.html">
+									<span class="title">Collapsed Sidebar</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-static-sidebar.html">
+									<span class="title">Static Sidebar</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-horizontal-menu.html">
+									<span class="title">Horizontal Menu</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-horizontal-plus-sidebar.html">
+									<span class="title">Horizontal &amp; Sidebar Menu</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-horizontal-menu-click-to-open-subs.html">
+									<span class="title">Horizontal Open On Click</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-horizontal-menu-min.html">
+									<span class="title">Horizontal Menu Minimal</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-right-sidebar.html">
+									<span class="title">Right Sidebar</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-chat-open.html">
+									<span class="title">Chat Open</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-horizontal-sidebar-menu-collapsed-right.html">
+									<span class="title">Both Menus &amp; Collapsed</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-boxed.html">
+									<span class="title">Boxed Layout</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-boxed-horizontal-menu.html">
+									<span class="title">Boxed &amp; Horizontal Menu</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="title">weidea.net</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="ui-panels.html">
+							<i class="linecons-note"></i>
+							<span class="title">UI Elements</span>
+						</a>
+						<ul>
+							<li>
+								<a href="ui-panels.html">
+									<span class="title">Panels</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-buttons.html">
+									<span class="title">Buttons</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-tabs-accordions.html">
+									<span class="title">Tabs &amp; Accordions</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-modals.html">
+									<span class="title">Modals</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-breadcrumbs.html">
+									<span class="title">Breadcrumbs</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-blockquotes.html">
+									<span class="title">Blockquotes</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-progressbars.html">
+									<span class="title">Progress Bars</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-navbars.html">
+									<span class="title">Navbars</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-alerts.html">
+									<span class="title">Alerts</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-pagination.html">
+									<span class="title">Pagination</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-typography.html">
+									<span class="title">Typography</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-other-elements.html">
+									<span class="title">Other Elements</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="ui-widgets.html">
+							<i class="linecons-star"></i>
+							<span class="title">Widgets</span>
+						</a>
+					</li>
+					<li>
+						<a href="mailbox-main.html">
+							<i class="linecons-mail"></i>
+							<span class="title">Mailbox</span>
+							<span class="label label-success pull-right">5</span>
+						</a>
+						<ul>
+							<li>
+								<a href="mailbox-main.html">
+									<span class="title">Inbox</span>
+								</a>
+							</li>
+							<li>
+								<a href="mailbox-compose.html">
+									<span class="title">Compose Message</span>
+								</a>
+							</li>
+							<li>
+								<a href="mailbox-message.html">
+									<span class="title">View Message</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="tables-basic.html">
+							<i class="linecons-database"></i>
+							<span class="title">Tables</span>
+						</a>
+						<ul>
+							<li>
+								<a href="tables-basic.html">
+									<span class="title">Basic Tables</span>
+								</a>
+							</li>
+							<li>
+								<a href="tables-responsive.html">
+									<span class="title">Responsive Table</span>
+								</a>
+							</li>
+							<li>
+								<a href="tables-datatables.html">
+									<span class="title">Data Tables</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="forms-native.html">
+							<i class="linecons-params"></i>
+							<span class="title">Forms</span>
+						</a>
+						<ul>
+							<li>
+								<a href="forms-native.html">
+									<span class="title">Native Elements</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-advanced.html">
+									<span class="title">Advanced Plugins</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-wizard.html">
+									<span class="title">Form Wizard</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-validation.html">
+									<span class="title">Form Validation</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-input-masks.html">
+									<span class="title">Input Masks</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-file-upload.html">
+									<span class="title">File Upload</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-editors.html">
+									<span class="title">Editors</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-sliders.html">
+									<span class="title">Sliders</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="extra-gallery.html">
+							<i class="linecons-beaker"></i>
+							<span class="title">Extra</span>
+							<span class="label label-purple pull-right hidden-collapsed">New Items</span>
+						</a>
+						<ul>
+							<li>
+								<a href="extra-icons-fontawesome.html">
+									<span class="title">Icons</span>
+									<span class="label label-warning pull-right">4</span>
+								</a>
+								<ul>
+									<li>
+										<a href="extra-icons-fontawesome.html">
+											<span class="title">Font Awesome</span>
+										</a>
+									</li>
+									<li>
+										<a href="extra-icons-linecons.html">
+											<span class="title">Linecons</span>
+										</a>
+									</li>
+									<li>
+										<a href="extra-icons-elusive.html">
+											<span class="title">Elusive</span>
+										</a>
+									</li>
+									<li>
+										<a href="extra-icons-meteocons.html">
+											<span class="title">Meteocons</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="extra-maps-google.html">
+									<span class="title">Maps</span>
+								</a>
+								<ul>
+									<li>
+										<a href="extra-maps-google.html">
+											<span class="title">Google Maps</span>
+										</a>
+									</li>
+									<li>
+										<a href="extra-maps-advanced.html">
+											<span class="title">Advanced Map</span>
+										</a>
+									</li>
+									<li>
+										<a href="extra-maps-vector.html">
+											<span class="title">Vector Map</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="extra-gallery.html">
+									<span class="title">Gallery</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-calendar.html">
+									<span class="title">Calendar</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-profile.html">
+									<span class="title">Profile</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-login.html">
+									<span class="title">Login</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-lockscreen.html">
+									<span class="title">Lockscreen</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-login-light.html">
+									<span class="title">Login Light</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-timeline.html">
+									<span class="title">Timeline</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-timeline-center.html">
+									<span class="title">Timeline Centerd</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-notes.html">
+									<span class="title">Notes</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-image-crop.html">
+									<span class="title">Image Crop</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-portlets.html">
+									<span class="title">Portlets</span>
+								</a>
+							</li>
+							<li>
+								<a href="blank-sidebar.html">
+									<span class="title">Blank Page</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-search.html">
+									<span class="title">Search</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-invoice.html">
+									<span class="title">Invoice</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-not-found.html">
+									<span class="title">404 Page</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-tocify.html">
+									<span class="title">Tocify</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-loader.html">
+									<span class="title">Loading Progress</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-page-loading-ol.html">
+									<span class="title">Page Loading Overlay</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-notifications.html">
+									<span class="title">Notifications</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-nestable-lists.html">
+									<span class="title">Nestable Lists</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-scrollable.html">
+									<span class="title">Scrollable</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="opened active">
+						<a href="charts-main.html">
+							<i class="linecons-globe"></i>
+							<span class="title">Charts</span>
+						</a>
+						<ul>
+							<li>
+								<a href="charts-main.html">
+									<span class="title">Chart Variants</span>
+								</a>
+							</li>
+							<li>
+								<a href="charts-range.html">
+									<span class="title">Range Selector</span>
+								</a>
+							</li>
+							<li class="active">
+								<a href="charts-sparklines.html">
+									<span class="title">Sparklines</span>
+								</a>
+							</li>
+							<li>
+								<a href="charts-map.html">
+									<span class="title">Map Charts</span>
+								</a>
+							</li>
+							<li>
+								<a href="charts-gauges.html">
+									<span class="title">Circular Gauges</span>
+								</a>
+							</li>
+							<li>
+								<a href="charts-bar-gauges.html">
+									<span class="title">Bar Gauges</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">
+							<i class="linecons-cloud"></i>
+							<span class="title">Menu Levels</span>
+						</a>
+						<ul>
+							<li>
+								<a href="#">
+									<i class="entypo-flow-line"></i>
+									<span class="title">Menu Level 1.1</span>
+								</a>
+								<ul>
+									<li>
+										<a href="#">
+											<i class="entypo-flow-parallel"></i>
+											<span class="title">Menu Level 2.1</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="entypo-flow-parallel"></i>
+											<span class="title">Menu Level 2.2</span>
+										</a>
+										<ul>
+											<li>
+												<a href="#">
+													<i class="entypo-flow-cascade"></i>
+													<span class="title">Menu Level 3.1</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="entypo-flow-cascade"></i>
+													<span class="title">Menu Level 3.2</span>
+												</a>
+												<ul>
+													<li>
+														<a href="#">
+															<i class="entypo-flow-branch"></i>
+															<span class="title">Menu Level 4.1</span>
+														</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">
+											<i class="entypo-flow-parallel"></i>
+											<span class="title">Menu Level 2.3</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">
+									<i class="entypo-flow-line"></i>
+									<span class="title">Menu Level 1.2</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="entypo-flow-line"></i>
+									<span class="title">Menu Level 1.3</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+						
+			</div>
+			
+		</div>
+		
+		<div class="main-content">
+					
+			<!-- User Info, Notifications and Menu Bar -->
+			<nav class="navbar user-info-navbar" role="navigation">
+				
+				<!-- Left links for user info navbar -->
+				<ul class="user-info-menu left-links list-inline list-unstyled">
+					
+					<li class="hidden-sm hidden-xs">
+						<a href="#" data-toggle="sidebar">
+							<i class="fa-bars"></i>
+						</a>
+					</li>
+					
+					<li class="dropdown hover-line">
+						<a href="#" data-toggle="dropdown">
+							<i class="fa-envelope-o"></i>
+							<span class="badge badge-green">15</span>
+						</a>
+							
+						<ul class="dropdown-menu messages">
+							<li>
+									
+								<ul class="dropdown-menu-list list-unstyled ps-scrollbar">
+								
+									<li class="active"><!-- "active" class means message is unread -->
+										<a href="#">
+											<span class="line">
+												<strong>Luc Chartier</strong>
+												<span class="light small">- yesterday</span>
+											</span>
+											
+											<span class="line desc small">
+												This ain’t our first item, it is the best of the rest.
+											</span>
+										</a>
+									</li>
+									
+									<li class="active">
+										<a href="#">
+											<span class="line">
+												<strong>Salma Nyberg</strong>
+												<span class="light small">- 2 days ago</span>
+											</span>
+											
+											<span class="line desc small">
+												Oh he decisively impression attachment friendship so if everything. 
+											</span>
+										</a>
+									</li>
+									
+									<li>
+										<a href="#">
+											<span class="line">
+												Hayden Cartwright
+												<span class="light small">- a week ago</span>
+											</span>
+											
+											<span class="line desc small">
+												Whose her enjoy chief new young. Felicity if ye required likewise so doubtful.
+											</span>
+										</a>
+									</li>
+									
+									<li>
+										<a href="#">
+											<span class="line">
+												Sandra Eberhardt
+												<span class="light small">- 16 days ago</span>
+											</span>
+											
+											<span class="line desc small">
+												On so attention necessary at by provision otherwise existence direction.
+											</span>
+										</a>
+									</li>
+									
+									<!-- Repeated -->
+									
+									<li class="active"><!-- "active" class means message is unread -->
+										<a href="#">
+											<span class="line">
+												<strong>Luc Chartier</strong>
+												<span class="light small">- yesterday</span>
+											</span>
+											
+											<span class="line desc small">
+												This ain’t our first item, it is the best of the rest.
+											</span>
+										</a>
+									</li>
+									
+									<li class="active">
+										<a href="#">
+											<span class="line">
+												<strong>Salma Nyberg</strong>
+												<span class="light small">- 2 days ago</span>
+											</span>
+											
+											<span class="line desc small">
+												Oh he decisively impression attachment friendship so if everything. 
+											</span>
+										</a>
+									</li>
+									
+									<li>
+										<a href="#">
+											<span class="line">
+												Hayden Cartwright
+												<span class="light small">- a week ago</span>
+											</span>
+											
+											<span class="line desc small">
+												Whose her enjoy chief new young. Felicity if ye required likewise so doubtful.
+											</span>
+										</a>
+									</li>
+									
+									<li>
+										<a href="#">
+											<span class="line">
+												Sandra Eberhardt
+												<span class="light small">- 16 days ago</span>
+											</span>
+											
+											<span class="line desc small">
+												On so attention necessary at by provision otherwise existence direction.
+											</span>
+										</a>
+									</li>
+									
+								</ul>
+								
+							</li>
+							
+							<li class="external">
+								<a href="blank-sidebar.html">
+									<span>All Messages</span>
+									<i class="fa-link-ext"></i>
+								</a>
+							</li>
+						</ul>
+					</li>
+					
+					<li class="dropdown hover-line">
+						<a href="#" data-toggle="dropdown">
+							<i class="fa-bell-o"></i>
+							<span class="badge badge-purple">7</span>
+						</a>
+							
+						<ul class="dropdown-menu notifications">
+							<li class="top">
+								<p class="small">
+									<a href="#" class="pull-right">Mark all Read</a>
+									You have <strong>3</strong> new notifications.
+								</p>
+							</li>
+							
+							<li>
+								<ul class="dropdown-menu-list list-unstyled ps-scrollbar">
+									<li class="active notification-success">
+										<a href="#">
+											<i class="fa-user"></i>
+											
+											<span class="line">
+												<strong>New user registered</strong>
+											</span>
+											
+											<span class="line small time">
+												30 seconds ago
+											</span>
+										</a>
+									</li>
+									
+									<li class="active notification-secondary">
+										<a href="#">
+											<i class="fa-lock"></i>
+											
+											<span class="line">
+												<strong>Privacy settings have been changed</strong>
+											</span>
+											
+											<span class="line small time">
+												3 hours ago
+											</span>
+										</a>
+									</li>
+									
+									<li class="notification-primary">
+										<a href="#">
+											<i class="fa-thumbs-up"></i>
+											
+											<span class="line">
+												<strong>Someone special liked this</strong>
+											</span>
+											
+											<span class="line small time">
+												2 minutes ago
+											</span>
+										</a>
+									</li>
+									
+									<li class="notification-danger">
+										<a href="#">
+											<i class="fa-calendar"></i>
+											
+											<span class="line">
+												John cancelled the event
+											</span>
+											
+											<span class="line small time">
+												9 hours ago
+											</span>
+										</a>
+									</li>
+									
+									<li class="notification-info">
+										<a href="#">
+											<i class="fa-database"></i>
+											
+											<span class="line">
+												The server is status is stable
+											</span>
+											
+											<span class="line small time">
+												yesterday at 10:30am
+											</span>
+										</a>
+									</li>
+									
+									<li class="notification-warning">
+										<a href="#">
+											<i class="fa-envelope-o"></i>
+											
+											<span class="line">
+												New comments waiting approval
+											</span>
+											
+											<span class="line small time">
+												last week
+											</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li class="external">
+								<a href="#">
+									<span>View all notifications</span>
+									<i class="fa-link-ext"></i>
+								</a>
+							</li>
+						</ul>
+					</li>
+					
+				</ul>
+				
+				
+				<!-- Right links for user info navbar -->
+				<ul class="user-info-menu right-links list-inline list-unstyled">
+					
+					<li class="search-form"><!-- You can add "always-visible" to show make the search input visible -->
+						
+						<form method="get" action="extra-search.html">
+							<input type="text" name="s" class="form-control search-field" placeholder="Type to search..." />
+							
+							<button type="submit" class="btn btn-link">
+								<i class="linecons-search"></i>
+							</button>
+						</form>
+						
+					</li>
+					
+					<li class="dropdown user-profile">
+						<a href="#" data-toggle="dropdown">
+							<img src="assets/images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+							<span>
+								Arlind Nushi
+								<i class="fa-angle-down"></i>
+							</span>
+						</a>
+						
+						<ul class="dropdown-menu user-profile-menu list-unstyled">
+							<li>
+								<a href="#edit-profile">
+									<i class="fa-edit"></i>
+									New Post
+								</a>
+							</li>
+							<li>
+								<a href="#settings">
+									<i class="fa-wrench"></i>
+									Settings
+								</a>
+							</li>
+							<li>
+								<a href="#profile">
+									<i class="fa-user"></i>
+									Profile
+								</a>
+							</li>
+							<li>
+								<a href="#help">
+									<i class="fa-info"></i>
+									Help
+								</a>
+							</li>
+							<li class="last">
+								<a href="extra-lockscreen.html">
+									<i class="fa-lock"></i>
+									Logout
+								</a>
+							</li>
+						</ul>
+					</li>
+					
+					<li>
+						<a href="#" data-toggle="chat">
+							<i class="fa-comments-o"></i>
+						</a>
+					</li>
+					
+				</ul>
+				
+			</nav>
+			<div class="page-title">
+				
+				<div class="title-env">
+					<h1 class="title">Sparklines</h1>
+					<p class="description">Data visualization widgets for your stats</p>
+				</div>
+				
+					<div class="breadcrumb-env">
+					
+								<ol class="breadcrumb bc-1">
+									<li>
+							<a href="dashboard-1.html"><i class="fa-home"></i>Home</a>
+						</li>
+								<li>
+						
+										<a href="charts-main.html">Charts</a>
+								</li>
+							<li class="active">
+						
+										<strong>Sparklines</strong>
+								</li>
+								</ol>
+								
+				</div>
+					
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-12">
+				
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Sparkline Charts</h3>
+							<div class="panel-options">
+								<a href="#" data-toggle="panel">
+									<span class="collapse-icon">&ndash;</span>
+									<span class="expand-icon">+</span>
+								</a>
+								<a href="#" data-toggle="remove">
+									&times;
+								</a>
+							</div>
+						</div>
+						<div class="panel-body">	
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									var oilOptions = {
+										dataSource: getOilCosts(),
+										argumentField: 'month',
+										valueField: '2010',
+										type: 'line',
+										showMinMax: true,
+										lineColor: '#f7aa47',
+										minColor: '#4fcdfc',
+										maxColor: '#d5080f',
+									},
+									goldOptions = {
+										dataSource: getGoldCosts(),
+										argumentField: 'month',
+										valueField: '2010',
+										type: 'spline',
+										lineWidth: 3,
+										lineColor: '#68b828',
+										minColor: '#00b19d',
+										maxColor: '#7c38bc',
+										showMinMax: true,
+										showFirstLast: false
+									},
+									silverOptions = {
+										dataSource: getSilverCosts(),
+										argumentField: 'month',
+										valueField: '2010',
+										lineColor: '#7c38bc',
+										firstLastColor: '#ccc',
+										pointSize: 6,
+										pointSymbol: 'square',
+										pointColor: '#333',
+										type: 'stepline'
+									};
+									
+									function getOilCosts() {
+										return [{ month: 1, 2010: 77, 2011: 93, 2012: 107 },
+										{ month: 2, 2010: 72, 2011: 101, 2012: 112 },
+										{ month: 3, 2010: 79, 2011: 115, 2012: 123 },
+										{ month: 4, 2010: 82, 2011: 116, 2012: 123 },
+										{ month: 5, 2010: 86, 2011: 124, 2012: 116 },
+										{ month: 6, 2010: 73, 2011: 115, 2012: 102 },
+										{ month: 7, 2010: 73, 2011: 110, 2012: 94 },
+										{ month: 8, 2010: 77, 2011: 117, 2012: 105 },
+										{ month: 9, 2010: 76, 2011: 113, 2012: 113 },
+										{ month: 10, 2010: 81, 2011: 103, 2012: 111 },
+										{ month: 11, 2010: 83, 2011: 110, 2012: 107 },
+										{ month: 12, 2010: 89, 2011: 109, 2012: 110 }];
+									}
+									function getGoldCosts() {
+										return [{ month: 1, 2010: 1115, 2011: 1358, 2012: 1661 },
+										{ month: 2, 2010: 1099, 2011: 1375, 2012: 1742 },
+										{ month: 3, 2010: 1114, 2011: 1423, 2012: 1677 },
+										{ month: 4, 2010: 1150, 2011: 1486, 2012: 1650 },
+										{ month: 5, 2010: 1205, 2011: 1511, 2012: 1589 },
+										{ month: 6, 2010: 1235, 2011: 1529, 2012: 1602 },
+										{ month: 7, 2010: 1193, 2011: 1573, 2012: 1593 },
+										{ month: 8, 2010: 1220, 2011: 1765, 2012: 1634 },
+										{ month: 9, 2010: 1272, 2011: 1771, 2012: 1750 },
+										{ month: 10, 2010: 1345, 2011: 1672, 2012: 1745 },
+										{ month: 11, 2010: 1370, 2011: 1741, 2012: 1720 },
+										{ month: 12, 2010: 1392, 2011: 1643, 2012: 1684 }];
+									};
+									function getSilverCosts() {
+										 return [{ month: 1, 2010: 17, 2011: 30, 2012: 27 },
+										{ month: 2, 2010: 28, 2011: 28, 2012: 33 },
+										{ month: 3, 2010: 34, 2011: 34, 2012: 35 },
+										{ month: 4, 2010: 37, 2011: 37, 2012: 32 },
+										{ month: 5, 2010: 47, 2011: 47, 2012: 30 },
+										{ month: 6, 2010: 37, 2011: 37, 2012: 28 },
+										{ month: 7, 2010: 34, 2011: 34, 2012: 27 },
+										{ month: 8, 2010: 40, 2011: 40, 2012: 27 },
+										{ month: 9, 2010: 41, 2011: 41, 2012: 31 },
+										{ month: 10, 2010: 30, 2011: 30, 2012: 34 },
+										{ month: 11, 2010: 34, 2011: 34, 2012: 31 },
+										{ month: 12, 2010: 32, 2011: 32, 2012: 33 }];
+									 };
+									
+									$('.line2010').dxSparkline(oilOptions);
+									$('.spline2010').dxSparkline(goldOptions);
+									$('.stepline2010').dxSparkline(silverOptions);
+									
+									$('.line2011').dxSparkline($.extend(oilOptions, { valueField: '2011' }));
+									$('.spline2011').dxSparkline($.extend(goldOptions, { valueField: '2011' }));
+									$('.stepline2011').dxSparkline($.extend(silverOptions, { valueField: '2011' }));
+									
+									$('.line2012').dxSparkline($.extend(oilOptions, { valueField: '2012' }));
+									$('.spline2012').dxSparkline($.extend(goldOptions, { valueField: '2012' }));
+									$('.stepline2012').dxSparkline($.extend(silverOptions, { valueField: '2012' }));
+								});
+							</script>
+							
+							<table class="table table-bordered table-hover text-center middle-align">
+							    <tr>
+							        <th></th>
+							        <th width="25%">Oil (USD/barrel)</th>
+							        <th width="25%">Gold (USD/troy ounce)</th>
+							        <th width="25%">Silver (USD/troy ounce)</th>
+							    </tr>
+							    <tr>
+							        <th>2010</th>
+							        <td>
+							            <div class="sparkline line2010"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline spline2010"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline stepline2010"></div>
+							        </td>
+							    </tr>
+							    <tr>
+							        <th>2011</th>
+							        <td>
+							            <div class="sparkline line2011"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline spline2011"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline stepline2011"></div>
+							        </td>
+							    </tr>
+							    <tr>
+							        <th>2012</th>
+							        <td>
+							            <div class="sparkline line2012"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline spline2012"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline stepline2012"></div>
+							        </td>
+							    </tr>
+							</table>
+						</div>
+						
+						<hr />
+						
+						<div class="panel-body">	
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									var copOptions = {
+										dataSource: getCopperCosts(),
+										argumentField: 'month',
+										valueField: '2010',
+										type: 'area',
+										showMinMax: true,
+										lineColor: '#00b19d',
+										minColor: '#68b828',
+										maxColor: '#7c38bc',
+										firstLastColor: '#ccc'
+									},
+									nickOptions = {
+										dataSource: getNickelCosts(),
+										argumentField: 'month',
+										valueField: '2010',
+										type: 'splinearea',
+										lineColor: '#ff6264',
+										minColor: '#6babac',
+										maxColor: '#565077',
+										pointSize: 6,
+										showMinMax: true,
+										showFirstLast: false
+									},
+									palOptions = {
+										dataSource: getPalladiumCosts(),
+										argumentField: 'month',
+										valueField: '2010',
+										firstLastColor: '#4fcdfc',
+										lineColor: '#0e62c7',
+										lineWidth: 3,
+										pointColor: '#4fcdfc',
+										pointSymbol: 'polygon',
+										type: 'steparea'
+									};
+									
+									function getCopperCosts() {
+										return [{ month: 1, 2010: 7341, 2011: 9585, 2012: 7501 },
+										{ month: 2, 2010: 7016, 2011: 10026, 2012: 8470 },
+										{ month: 3, 2010: 7202, 2011: 9889, 2012: 8591 },
+										{ month: 4, 2010: 7851, 2011: 9460, 2012: 8459 },
+										{ month: 5, 2010: 7481, 2011: 9373, 2012: 8320 },
+										{ month: 6, 2010: 6532, 2011: 9108, 2012: 7465 },
+										{ month: 7, 2010: 6498, 2011: 9295, 2012: 7475 },
+										{ month: 8, 2010: 7191, 2011: 9834, 2012: 7430 },
+										{ month: 9, 2010: 7596, 2011: 9121, 2012: 7614 },
+										{ month: 10, 2010: 8057, 2011: 7125, 2012: 8245 },
+										{ month: 11, 2010: 8373, 2011: 7871, 2012: 7727 },
+										{ month: 12, 2010: 8636, 2011: 7725, 2012: 7880 }];
+									};
+									function getNickelCosts() {
+										return [{ month: 1, 2010: 18974, 2011: 24298, 2012: 18322 },
+										{ month: 2, 2010: 18162, 2011: 27929, 2012: 21093 },
+										{ month: 3, 2010: 20535, 2011: 28802, 2012: 19701 },
+										{ month: 4, 2010: 24562, 2011: 26142, 2012: 17695 },
+										{ month: 5, 2010: 26131, 2011: 26753, 2012: 17549 },
+										{ month: 6, 2010: 19278, 2011: 23055, 2012: 16436 },
+										{ month: 7, 2010: 19475, 2011: 22870, 2012: 16382 },
+										{ month: 8, 2010: 20701, 2011: 24388, 2012: 15687 },
+										{ month: 9, 2010: 21266, 2011: 21845, 2012: 16085 },
+										{ month: 10, 2010: 23358, 2011: 18346, 2012: 18250 },
+										{ month: 11, 2010: 23150, 2011: 18822, 2012: 16083 },
+										{ month: 12, 2010: 23282, 2011: 17320, 2012: 17104 }];
+									};
+									function getPalladiumCosts() {
+										return [{ month: 1, 2010: 398, 2011: 788, 2012: 649 },
+										{ month: 2, 2010: 422, 2011: 817, 2012: 698 },
+										{ month: 3, 2010: 431, 2011: 812, 2012: 713 },
+										{ month: 4, 2010: 481, 2011: 760, 2012: 654 },
+										{ month: 5, 2010: 551, 2011: 774, 2012: 665 },
+										{ month: 6, 2010: 449, 2011: 775, 2012: 609 },
+										{ month: 7, 2010: 442, 2011: 750, 2012: 584 },
+										{ month: 8, 2010: 482, 2011: 827, 2012: 580 },
+										{ month: 9, 2010: 517, 2011: 776, 2012: 632 },
+										{ month: 10, 2010: 566, 2011: 624, 2012: 657 },
+										{ month: 11, 2010: 630, 2011: 651, 2012: 601 },
+										{ month: 12, 2010: 737, 2011: 615, 2012: 675 }];
+									};
+									
+									
+									$('.area2010').dxSparkline(copOptions);
+									$('.splinearea2010').dxSparkline(nickOptions);
+									$('.steparea2010').dxSparkline(palOptions);
+									
+									$('.area2011').dxSparkline($.extend(copOptions, { valueField: '2011' }));
+									$('.splinearea2011').dxSparkline($.extend(nickOptions, { valueField: '2011' }));
+									$('.steparea2011').dxSparkline($.extend(palOptions, { valueField: '2011' }));
+									
+									$('.area2012').dxSparkline($.extend(copOptions, { valueField: '2012' }));
+									$('.splinearea2012').dxSparkline($.extend(nickOptions, { valueField: '2012' }));
+									$('.steparea2012').dxSparkline($.extend(palOptions, { valueField: '2012' }));
+								});
+							</script>
+							
+							<table class="table table-bordered table-hover text-center middle-align">
+							    <tr>
+							        <th></th>
+							        <th width="25%">Copper (USD/ton)</th>
+							        <th width="25%">Nickel (USD/ton)</th>
+							        <th width="25%">Palladium (USD/troy ounce)</th>
+							    </tr>
+							    <tr>
+							        <th>2010</th>
+							        <td>
+							            <div class="sparkline area2010"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline splinearea2010"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline steparea2010"></div>
+							        </td>
+							    </tr>
+							    <tr>
+							        <th>2011</th>
+							        <td>
+							            <div class="sparkline area2011"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline splinearea2011"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline steparea2011"></div>
+							        </td>
+							    </tr>
+							    <tr>
+							        <th>2012</th>
+							        <td>
+							            <div class="sparkline area2012"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline splinearea2012"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline steparea2012"></div>
+							        </td>
+							    </tr>
+							</table>
+						</div>
+						
+						<hr />
+						
+						<div class="panel-body">	
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									var source = new DevExpress.data.DataSource({
+										load: function(loadOptions) {
+											var d = $.Deferred();
+											$.getJSON('data/sparklineResourceData.json').done(function(data) {
+												var filteredData = DevExpress.data
+												  .query(data)
+												  .filter(loadOptions.filter)
+												  .toArray();
+												d.resolve(filteredData);
+											});
+											return d.promise();
+										},
+										filter: ['month', '<=', '12']
+									});
+									
+									var alumOptions = {
+										dataSource: source,
+										argumentField: 'month',
+										valueField: 'alum2010-2',
+										type: 'bar',
+										showMinMax: true
+									},
+									nickOptions = {
+										dataSource: source,
+										argumentField: 'month',
+										valueField: 'nickel2010',
+										type: 'bar',
+										showMinMax: true,
+										showFirstLast: false,
+										barPositiveColor: '#fcd036',
+										minColor: '#d5080f',
+										maxColor: '#68b828'
+									},
+									copOptions = {
+										dataSource: source,
+										argumentField: 'month',
+										valueField: 'copper2010',
+										type: 'bar',
+										barPositiveColor: '#0e62c7',
+										firstLastColor: '#7c38bc'
+									};
+									
+									changeFilter = function(e) {
+										var count = e.options[e.selectedIndex].value;
+										source.filter(['month', '<=', count]);
+										source.load();
+									};
+									
+									$('.alum2010-2').dxSparkline(alumOptions);
+									$('.nick2010-2').dxSparkline(nickOptions);
+									$('.cop2010-2').dxSparkline(copOptions);
+									
+									$('.alum2011-2').dxSparkline($.extend(alumOptions, { valueField: 'alum2011-2' }));
+									$('.nick2011-2').dxSparkline($.extend(nickOptions, { valueField: 'nickel2011-2' }));
+									$('.cop2011-2').dxSparkline($.extend(copOptions, { valueField: 'copper2011-2' }));
+									
+									$('.alum2012-2').dxSparkline($.extend(alumOptions, { valueField: 'alum2012-2' }));
+									$('.nick2012-2').dxSparkline($.extend(nickOptions, { valueField: 'nickel2012' }));
+									$('.cop2012-2').dxSparkline($.extend(copOptions, { valueField: 'copper2012' }));
+			
+								});
+								
+							</script>
+							
+							<table class="table table-bordered table-hover text-center middle-align" border="1">
+							    <tr>
+							        <th></th>
+							        <th width="25%">Aluminium (USD/ton)</th>
+							        <th width="25%">Nickel (USD/ton)</th>
+							        <th width="25%">Copper (USD/ton)</th>
+							    </tr>
+							    <tr>
+							        <th>2010</th>
+							        <td>
+							            <div class="sparkline alum2010-2"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline nick2010-2"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline cop2010-2"></div>
+							        </td>
+							    </tr>
+							    <tr>
+							        <th>2011</th>
+							        <td>
+							            <div class="sparkline alum2011-2"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline nick2011-2"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline cop2011-2"></div>
+							        </td>
+							    </tr>
+							    <tr>
+							        <th>2012</th>
+							        <td>
+							            <div class="sparkline alum2012-2"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline nick2012-2"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline cop2012-2"></div>
+							        </td>
+							    </tr>
+							</table>
+							<div style="margin-top: 15px">Choose a number of months:
+							    <select onchange="changeFilter(this)">
+							        <option selected>12</option>
+							        <option>11</option>
+							        <option>10</option>
+							        <option>9</option>
+							        <option>8</option>
+							        <option>7</option>
+							        <option>6</option>
+							        <option>5</option>
+							        <option>4</option>
+							        <option>3</option>
+							        <option>2</option>
+							        <option>1</option>
+							    </select>
+							</div>
+							
+						</div>
+						
+						<hr />
+						
+						<div class="panel-body">	
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									var options = {
+										startScaleValue: 0,
+										endScaleValue: 35,
+										tooltip: {
+											customizeText: function() {
+												return 'Current t&#176: ' + this.value + '&#176C<br>' + 'Average t&#176: ' + this.target + '&#176C';
+											}
+										}
+									};
+									
+									var junFirst = $.extend({ value: 23, target: 20, color: '#68b828' }, options),
+										julFirst = $.extend({ value: 27, target: 24, color: '#4fcdfc' }, options),
+										augFirst = $.extend({ value: 20, target: 26, color: '#d5080f' }, options);
+									
+									var junSecond = $.extend({ value: 24, target: 22, color: '#68b828' }, options),
+										julSecond = $.extend({ value: 28, target: 24, color: '#4fcdfc' }, options),
+										augSecond = $.extend({ value: 30, target: 24, color: '#d5080f' }, options);
+									
+									var junThird = $.extend({ value: 35, target: 24, color: '#68b828' }, options),
+										julThird = $.extend({ value: 24, target: 26, color: '#4fcdfc' }, options),
+										augThird = $.extend({ value: 28, target: 22, color: '#d5080f' }, options);
+									
+									var junFourth = $.extend({ value: 29, target: 25, color: '#68b828' }, options),
+										julFourth = $.extend({ value: 24, target: 27, color: '#4fcdfc' }, options),
+										augFourth = $.extend({ value: 21, target: 21, color: '#d5080f' }, options);
+									
+									$('.june-1').dxBullet(junFirst);
+									$('.july-1').dxBullet(julFirst);
+									$('.august-1').dxBullet(augFirst);
+									
+									$('.june-2').dxBullet(junSecond);
+									$('.july-2').dxBullet(julSecond);
+									$('.august-2').dxBullet(augSecond);
+									
+									$('.june-3').dxBullet(junThird);
+									$('.july-3').dxBullet(julThird);
+									$('.august-3').dxBullet(augThird);
+									
+									$('.june-4').dxBullet(junFourth);
+									$('.july-4').dxBullet(julFourth);
+									$('.august-4').dxBullet(augFourth);
+			
+								});
+							</script>
+							
+							<table class="table table-bordered table-hover text-center middle-align" border="1">
+							    <tr>
+							        <th></th>
+							        <th width="25%">June</th>
+							        <th width="25%">July</th>
+							        <th width="25%">August</th>
+							    </tr>
+							    <tr>
+							        <th>First week</th>
+							        <td>
+							            <div class="sparkline june-1"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline july-1"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline august-1"></div>
+							        </td>
+							    </tr>
+							    <tr>
+							        <th>Second week</th>
+							        <td>
+							            <div class="sparkline june-2"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline july-2"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline august-2"></div>
+							        </td>
+							    </tr>
+							    <tr>
+							        <th>Third Week</th>
+							        <td>
+							            <div class="sparkline june-3"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline july-3"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline august-3"></div>
+							        </td>
+							    </tr>
+							    <tr>
+							        <th>Fourth week</th>
+							        <td>
+							            <div class="sparkline june-4"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline july-4"></div>
+							        </td>
+							        <td>
+							            <div class="sparkline august-4"></div>
+							        </td>
+							    </tr>
+							</table>
+						</div>
+						
+					</div>
+						
+				</div>
+			</div>
+			
+			<!-- Main Footer -->
+			<!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
+			<!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
+			<!-- Or class "fixed" to  always fix the footer to the end of page -->
+			<footer class="main-footer sticky footer-type-1">
+				
+				<div class="footer-inner">
+				
+					<!-- Add your copyright text here -->
+					<div class="footer-text">
+						&copy; 2014 
+						<strong>Xenon</strong> 
+						More Templates <a href="http://www.mycodes.net/" target="_blank" title="源码之家">源码之家</a> - Collect from <a href="#/" title="网页模板" target="_blank">网页模板</a>
+					</div>
+					
+					
+					<!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
+					<div class="go-up">
+					
+						<a href="#" rel="go-top">
+							<i class="fa-angle-up"></i>
+						</a>
+						
+					</div>
+					
+				</div>
+				
+			</footer>
+		</div>
+		
+			
+		<!-- start: Chat Section -->
+		<div id="chat" class="fixed">
+			
+			<div class="chat-inner">
+			
+				
+				<h2 class="chat-header">
+					<a href="#" class="chat-close" data-toggle="chat">
+						<i class="fa-plus-circle rotate-45deg"></i>
+					</a>
+					
+					Chat
+					<span class="badge badge-success is-hidden">0</span>
+				</h2>
+				
+				<script type="text/javascript">
+				// Here is just a sample how to open chat conversation box
+				jQuery(document).ready(function($)
+				{
+					var $chat_conversation = $(".chat-conversation");
+					
+					$(".chat-group a").on('click', function(ev)
+					{
+						ev.preventDefault();
+						
+						$chat_conversation.toggleClass('is-open');
+						
+						$(".chat-conversation textarea").trigger('autosize.resize').focus();
+					});
+					
+					$(".conversation-close").on('click', function(ev)
+					{
+						ev.preventDefault();
+						$chat_conversation.removeClass('is-open');
+					});
+				});
+				</script>
+				
+				
+				<div class="chat-group">
+					<strong>Favorites</strong>
+					
+					<a href="#"><span class="user-status is-online"></span> <em>Catherine J. Watkins</em></a>
+					<a href="#"><span class="user-status is-online"></span> <em>Nicholas R. Walker</em></a>
+					<a href="#"><span class="user-status is-busy"></span> <em>Susan J. Best</em></a>
+					<a href="#"><span class="user-status is-idle"></span> <em>Fernando G. Olson</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Brandon S. Young</em></a>
+				</div>
+				
+				
+				<div class="chat-group">
+					<strong>Work</strong>
+					
+					<a href="#"><span class="user-status is-busy"></span> <em>Rodrigo E. Lozano</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Robert J. Garcia</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Daniel A. Pena</em></a>
+				</div>
+				
+				
+				<div class="chat-group">
+					<strong>Other</strong>
+					
+					<a href="#"><span class="user-status is-online"></span> <em>Dennis E. Johnson</em></a>
+					<a href="#"><span class="user-status is-online"></span> <em>Stuart A. Shire</em></a>
+					<a href="#"><span class="user-status is-online"></span> <em>Janet I. Matas</em></a>
+					<a href="#"><span class="user-status is-online"></span> <em>Mindy A. Smith</em></a>
+					<a href="#"><span class="user-status is-busy"></span> <em>Herman S. Foltz</em></a>
+					<a href="#"><span class="user-status is-busy"></span> <em>Gregory E. Robie</em></a>
+					<a href="#"><span class="user-status is-busy"></span> <em>Nellie T. Foreman</em></a>
+					<a href="#"><span class="user-status is-busy"></span> <em>William R. Miller</em></a>
+					<a href="#"><span class="user-status is-idle"></span> <em>Vivian J. Hall</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Melinda A. Anderson</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Gary M. Mooneyham</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Robert C. Medina</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Dylan C. Bernal</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Marc P. Sanborn</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Kenneth M. Rochester</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Rachael D. Carpenter</em></a>
+				</div>
+			
+			</div>
+			
+			<!-- conversation template -->
+			<div class="chat-conversation">
+				
+				<div class="conversation-header">
+					<a href="#" class="conversation-close">
+						&times;
+					</a>
+					
+					<span class="user-status is-online"></span>
+					<span class="display-name">Arlind Nushi</span> 
+					<small>Online</small>
+				</div>
+				
+				<ul class="conversation-body">	
+					<li>
+						<span class="user">Arlind Nushi</span>
+						<span class="time">09:00</span>
+						<p>Are you here?</p>
+					</li>
+					<li class="odd">
+						<span class="user">Brandon S. Young</span>
+						<span class="time">09:25</span>
+						<p>This message is pre-queued.</p>
+					</li>
+					<li>
+						<span class="user">Brandon S. Young</span>
+						<span class="time">09:26</span>
+						<p>Whohoo!</p>
+					</li>
+					<li class="odd">
+						<span class="user">Arlind Nushi</span>
+						<span class="time">09:27</span>
+						<p>Do you like it?</p>
+					</li>
+				</ul>
+				
+				<div class="chat-textarea">
+					<textarea class="form-control autogrow" placeholder="Type your message"></textarea>
+				</div>
+				
+			</div>
+			
+		</div>
+		<!-- end: Chat Section -->
+		
+		
+	</div>
+	
+	
+	
+
+
+
+
+	<!-- Imported styles on this page -->
+	<link rel="stylesheet" href="assets/js/devexpress-web-14.1/css/dx.common.css">
+	<link rel="stylesheet" href="assets/js/devexpress-web-14.1/css/dx.light.css">
+
+	<!-- Bottom Scripts -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/TweenMax.min.js"></script>
+	<script src="assets/js/resizeable.js"></script>
+	<script src="assets/js/joinable.js"></script>
+	<script src="assets/js/xenon-api.js"></script>
+	<script src="assets/js/xenon-toggles.js"></script>
+
+
+	<!-- Imported scripts on this page -->
+	<script src="assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+	<script src="assets/js/devexpress-web-14.1/js/dx.webappjs.js"></script>
+	<script src="assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src="assets/js/xenon-custom.js"></script>
+
+</body>
+</html>

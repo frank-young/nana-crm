@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Xenon Boostrap Admin Panel" />
+	<meta name="author" content="" />
+	
+	<title>Xenon - Elusive</title>
+
+	<link rel="stylesheet" href="http://fonts.useso.com/css?family=Arimo:400,700,400italic">
+	<link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
+	<link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/xenon-core.css">
+	<link rel="stylesheet" href="assets/css/xenon-forms.css">
+	<link rel="stylesheet" href="assets/css/xenon-components.css">
+	<link rel="stylesheet" href="assets/css/xenon-skins.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+
+	<script src="assets/js/jquery-1.11.1.min.js"></script>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+	
+	
+</head>
+<body class="page-body">
+
+	<div class="settings-pane">
+			
+		<a href="#" data-toggle="settings-pane" data-animate="true">
+			&times;
+		</a>
+		
+		<div class="settings-pane-inner">
+			
+			<div class="row">
+				
+				<div class="col-md-4">
+					
+					<div class="user-info">
+						
+						<div class="user-image">
+							<a href="extra-profile.html">
+								<img src="assets/images/user-2.png" class="img-responsive img-circle" />
+							</a>
+						</div>
+						
+						<div class="user-details">
+							
+							<h3>
+								<a href="extra-profile.html">John Smith</a>
+								
+								<!-- Available statuses: is-online, is-idle, is-busy and is-offline -->
+								<span class="user-status is-online"></span>
+							</h3>
+							
+							<p class="user-title">Web Developer</p>
+							
+							<div class="user-links">
+								<a href="extra-profile.html" class="btn btn-primary">Edit Profile</a>
+								<a href="extra-profile.html" class="btn btn-success">Upgrade</a>
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+				<div class="col-md-8 link-blocks-env">
+					
+					<div class="links-block left-sep">
+						<h4>
+							<span>Notifications</span>
+						</h4>
+						
+						<ul class="list-unstyled">
+							<li>
+								<input type="checkbox" class="cbr cbr-primary" checked="checked" id="sp-chk1" />
+								<label for="sp-chk1">Messages</label>
+							</li>
+							<li>
+								<input type="checkbox" class="cbr cbr-primary" checked="checked" id="sp-chk2" />
+								<label for="sp-chk2">Events</label>
+							</li>
+							<li>
+								<input type="checkbox" class="cbr cbr-primary" checked="checked" id="sp-chk3" />
+								<label for="sp-chk3">Updates</label>
+							</li>
+							<li>
+								<input type="checkbox" class="cbr cbr-primary" checked="checked" id="sp-chk4" />
+								<label for="sp-chk4">Server Uptime</label>
+							</li>
+						</ul>
+					</div>
+					
+					<div class="links-block left-sep">
+						<h4>
+							<a href="#">
+								<span>Help Desk</span>
+							</a>
+						</h4>
+						
+						<ul class="list-unstyled">
+							<li>
+								<a href="#">
+									<i class="fa-angle-right"></i>
+									Support Center
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa-angle-right"></i>
+									Submit a Ticket
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa-angle-right"></i>
+									Domains Protocol
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa-angle-right"></i>
+									Terms of Service
+								</a>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+				
+			</div>
+		
+		</div>
+		
+	</div>
+	
+	<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+			
+		<!-- Add "fixed" class to make the sidebar fixed always to the browser viewport. -->
+		<!-- Adding class "toggle-others" will keep only one menu item open at a time. -->
+		<!-- Adding class "collapsed" collapse sidebar root elements and show only icons. -->
+		<div class="sidebar-menu toggle-others fixed">
+			
+			<div class="sidebar-menu-inner">	
+				
+				<header class="logo-env">
+					
+					<!-- logo -->
+					<div class="logo">
+						<a href="dashboard-1.html" class="logo-expanded">
+							<img src="assets/images/logo@2x.png" width="80" alt="" />
+						</a>
+						
+						<a href="dashboard-1.html" class="logo-collapsed">
+							<img src="assets/images/logo-collapsed@2x.png" width="40" alt="" />
+						</a>
+					</div>
+					
+					<!-- This will toggle the mobile menu and will be visible only on mobile devices -->
+					<div class="mobile-menu-toggle visible-xs">
+						<a href="#" data-toggle="user-info-menu">
+							<i class="fa-bell-o"></i>
+							<span class="badge badge-success">7</span>
+						</a>
+						
+						<a href="#" data-toggle="mobile-menu">
+							<i class="fa-bars"></i>
+						</a>
+					</div>
+					
+					<!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->
+					<div class="settings-icon">
+						<a href="#" data-toggle="settings-pane" data-animate="true">
+							<i class="linecons-cog"></i>
+						</a>
+					</div>
+					
+								
+				</header>
+						
+				
+						
+				<ul id="main-menu" class="main-menu">
+					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+					<li>
+						<a href="dashboard-1.html">
+							<i class="linecons-cog"></i>
+							<span class="title">Dashboard</span>
+						</a>
+						<ul>
+							<li>
+								<a href="dashboard-1.html">
+									<span class="title">Dashboard 1</span>
+								</a>
+							</li>
+							<li>
+								<a href="dashboard-2.html">
+									<span class="title">Dashboard 2</span>
+								</a>
+							</li>
+							<li>
+								<a href="dashboard-3.html">
+									<span class="title">Dashboard 3</span>
+								</a>
+							</li>
+							<li>
+								<a href="dashboard-4.html">
+									<span class="title">Dashboard 4</span>
+								</a>
+							</li>
+							<li>
+								<a href="skin-generator.html">
+									<span class="title">Skin Generator</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="layout-variants.html">
+							<i class="linecons-desktop"></i>
+							<span class="title">Layouts</span>
+						</a>
+						<ul>
+							<li>
+								<a href="layout-variants.html">
+									<span class="title">Layout Variants &amp; API</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-collapsed-sidebar.html">
+									<span class="title">Collapsed Sidebar</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-static-sidebar.html">
+									<span class="title">Static Sidebar</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-horizontal-menu.html">
+									<span class="title">Horizontal Menu</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-horizontal-plus-sidebar.html">
+									<span class="title">Horizontal &amp; Sidebar Menu</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-horizontal-menu-click-to-open-subs.html">
+									<span class="title">Horizontal Open On Click</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-horizontal-menu-min.html">
+									<span class="title">Horizontal Menu Minimal</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-right-sidebar.html">
+									<span class="title">Right Sidebar</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-chat-open.html">
+									<span class="title">Chat Open</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-horizontal-sidebar-menu-collapsed-right.html">
+									<span class="title">Both Menus &amp; Collapsed</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-boxed.html">
+									<span class="title">Boxed Layout</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-boxed-horizontal-menu.html">
+									<span class="title">Boxed &amp; Horizontal Menu</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="title">weidea.net</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="ui-panels.html">
+							<i class="linecons-note"></i>
+							<span class="title">UI Elements</span>
+						</a>
+						<ul>
+							<li>
+								<a href="ui-panels.html">
+									<span class="title">Panels</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-buttons.html">
+									<span class="title">Buttons</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-tabs-accordions.html">
+									<span class="title">Tabs &amp; Accordions</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-modals.html">
+									<span class="title">Modals</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-breadcrumbs.html">
+									<span class="title">Breadcrumbs</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-blockquotes.html">
+									<span class="title">Blockquotes</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-progressbars.html">
+									<span class="title">Progress Bars</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-navbars.html">
+									<span class="title">Navbars</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-alerts.html">
+									<span class="title">Alerts</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-pagination.html">
+									<span class="title">Pagination</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-typography.html">
+									<span class="title">Typography</span>
+								</a>
+							</li>
+							<li>
+								<a href="ui-other-elements.html">
+									<span class="title">Other Elements</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="ui-widgets.html">
+							<i class="linecons-star"></i>
+							<span class="title">Widgets</span>
+						</a>
+					</li>
+					<li>
+						<a href="mailbox-main.html">
+							<i class="linecons-mail"></i>
+							<span class="title">Mailbox</span>
+							<span class="label label-success pull-right">5</span>
+						</a>
+						<ul>
+							<li>
+								<a href="mailbox-main.html">
+									<span class="title">Inbox</span>
+								</a>
+							</li>
+							<li>
+								<a href="mailbox-compose.html">
+									<span class="title">Compose Message</span>
+								</a>
+							</li>
+							<li>
+								<a href="mailbox-message.html">
+									<span class="title">View Message</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="tables-basic.html">
+							<i class="linecons-database"></i>
+							<span class="title">Tables</span>
+						</a>
+						<ul>
+							<li>
+								<a href="tables-basic.html">
+									<span class="title">Basic Tables</span>
+								</a>
+							</li>
+							<li>
+								<a href="tables-responsive.html">
+									<span class="title">Responsive Table</span>
+								</a>
+							</li>
+							<li>
+								<a href="tables-datatables.html">
+									<span class="title">Data Tables</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="forms-native.html">
+							<i class="linecons-params"></i>
+							<span class="title">Forms</span>
+						</a>
+						<ul>
+							<li>
+								<a href="forms-native.html">
+									<span class="title">Native Elements</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-advanced.html">
+									<span class="title">Advanced Plugins</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-wizard.html">
+									<span class="title">Form Wizard</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-validation.html">
+									<span class="title">Form Validation</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-input-masks.html">
+									<span class="title">Input Masks</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-file-upload.html">
+									<span class="title">File Upload</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-editors.html">
+									<span class="title">Editors</span>
+								</a>
+							</li>
+							<li>
+								<a href="forms-sliders.html">
+									<span class="title">Sliders</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="opened active">
+						<a href="extra-gallery.html">
+							<i class="linecons-beaker"></i>
+							<span class="title">Extra</span>
+							<span class="label label-purple pull-right hidden-collapsed">New Items</span>
+						</a>
+						<ul>
+							<li class="opened active">
+								<a href="extra-icons-fontawesome.html">
+									<span class="title">Icons</span>
+									<span class="label label-warning pull-right">4</span>
+								</a>
+								<ul>
+									<li>
+										<a href="extra-icons-fontawesome.html">
+											<span class="title">Font Awesome</span>
+										</a>
+									</li>
+									<li>
+										<a href="extra-icons-linecons.html">
+											<span class="title">Linecons</span>
+										</a>
+									</li>
+									<li class="active">
+										<a href="extra-icons-elusive.html">
+											<span class="title">Elusive</span>
+										</a>
+									</li>
+									<li>
+										<a href="extra-icons-meteocons.html">
+											<span class="title">Meteocons</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="extra-maps-google.html">
+									<span class="title">Maps</span>
+								</a>
+								<ul>
+									<li>
+										<a href="extra-maps-google.html">
+											<span class="title">Google Maps</span>
+										</a>
+									</li>
+									<li>
+										<a href="extra-maps-advanced.html">
+											<span class="title">Advanced Map</span>
+										</a>
+									</li>
+									<li>
+										<a href="extra-maps-vector.html">
+											<span class="title">Vector Map</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="extra-gallery.html">
+									<span class="title">Gallery</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-calendar.html">
+									<span class="title">Calendar</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-profile.html">
+									<span class="title">Profile</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-login.html">
+									<span class="title">Login</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-lockscreen.html">
+									<span class="title">Lockscreen</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-login-light.html">
+									<span class="title">Login Light</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-timeline.html">
+									<span class="title">Timeline</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-timeline-center.html">
+									<span class="title">Timeline Centerd</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-notes.html">
+									<span class="title">Notes</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-image-crop.html">
+									<span class="title">Image Crop</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-portlets.html">
+									<span class="title">Portlets</span>
+								</a>
+							</li>
+							<li>
+								<a href="blank-sidebar.html">
+									<span class="title">Blank Page</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-search.html">
+									<span class="title">Search</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-invoice.html">
+									<span class="title">Invoice</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-not-found.html">
+									<span class="title">404 Page</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-tocify.html">
+									<span class="title">Tocify</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-loader.html">
+									<span class="title">Loading Progress</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-page-loading-ol.html">
+									<span class="title">Page Loading Overlay</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-notifications.html">
+									<span class="title">Notifications</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-nestable-lists.html">
+									<span class="title">Nestable Lists</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-scrollable.html">
+									<span class="title">Scrollable</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="charts-main.html">
+							<i class="linecons-globe"></i>
+							<span class="title">Charts</span>
+						</a>
+						<ul>
+							<li>
+								<a href="charts-main.html">
+									<span class="title">Chart Variants</span>
+								</a>
+							</li>
+							<li>
+								<a href="charts-range.html">
+									<span class="title">Range Selector</span>
+								</a>
+							</li>
+							<li>
+								<a href="charts-sparklines.html">
+									<span class="title">Sparklines</span>
+								</a>
+							</li>
+							<li>
+								<a href="charts-map.html">
+									<span class="title">Map Charts</span>
+								</a>
+							</li>
+							<li>
+								<a href="charts-gauges.html">
+									<span class="title">Circular Gauges</span>
+								</a>
+							</li>
+							<li>
+								<a href="charts-bar-gauges.html">
+									<span class="title">Bar Gauges</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">
+							<i class="linecons-cloud"></i>
+							<span class="title">Menu Levels</span>
+						</a>
+						<ul>
+							<li>
+								<a href="#">
+									<i class="entypo-flow-line"></i>
+									<span class="title">Menu Level 1.1</span>
+								</a>
+								<ul>
+									<li>
+										<a href="#">
+											<i class="entypo-flow-parallel"></i>
+											<span class="title">Menu Level 2.1</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="entypo-flow-parallel"></i>
+											<span class="title">Menu Level 2.2</span>
+										</a>
+										<ul>
+											<li>
+												<a href="#">
+													<i class="entypo-flow-cascade"></i>
+													<span class="title">Menu Level 3.1</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="entypo-flow-cascade"></i>
+													<span class="title">Menu Level 3.2</span>
+												</a>
+												<ul>
+													<li>
+														<a href="#">
+															<i class="entypo-flow-branch"></i>
+															<span class="title">Menu Level 4.1</span>
+														</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">
+											<i class="entypo-flow-parallel"></i>
+											<span class="title">Menu Level 2.3</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">
+									<i class="entypo-flow-line"></i>
+									<span class="title">Menu Level 1.2</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="entypo-flow-line"></i>
+									<span class="title">Menu Level 1.3</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+						
+			</div>
+			
+		</div>
+		
+		<div class="main-content">
+					
+			<!-- User Info, Notifications and Menu Bar -->
+			<nav class="navbar user-info-navbar" role="navigation">
+				
+				<!-- Left links for user info navbar -->
+				<ul class="user-info-menu left-links list-inline list-unstyled">
+					
+					<li class="hidden-sm hidden-xs">
+						<a href="#" data-toggle="sidebar">
+							<i class="fa-bars"></i>
+						</a>
+					</li>
+					
+					<li class="dropdown hover-line">
+						<a href="#" data-toggle="dropdown">
+							<i class="fa-envelope-o"></i>
+							<span class="badge badge-green">15</span>
+						</a>
+							
+						<ul class="dropdown-menu messages">
+							<li>
+									
+								<ul class="dropdown-menu-list list-unstyled ps-scrollbar">
+								
+									<li class="active"><!-- "active" class means message is unread -->
+										<a href="#">
+											<span class="line">
+												<strong>Luc Chartier</strong>
+												<span class="light small">- yesterday</span>
+											</span>
+											
+											<span class="line desc small">
+												This ain’t our first item, it is the best of the rest.
+											</span>
+										</a>
+									</li>
+									
+									<li class="active">
+										<a href="#">
+											<span class="line">
+												<strong>Salma Nyberg</strong>
+												<span class="light small">- 2 days ago</span>
+											</span>
+											
+											<span class="line desc small">
+												Oh he decisively impression attachment friendship so if everything. 
+											</span>
+										</a>
+									</li>
+									
+									<li>
+										<a href="#">
+											<span class="line">
+												Hayden Cartwright
+												<span class="light small">- a week ago</span>
+											</span>
+											
+											<span class="line desc small">
+												Whose her enjoy chief new young. Felicity if ye required likewise so doubtful.
+											</span>
+										</a>
+									</li>
+									
+									<li>
+										<a href="#">
+											<span class="line">
+												Sandra Eberhardt
+												<span class="light small">- 16 days ago</span>
+											</span>
+											
+											<span class="line desc small">
+												On so attention necessary at by provision otherwise existence direction.
+											</span>
+										</a>
+									</li>
+									
+									<!-- Repeated -->
+									
+									<li class="active"><!-- "active" class means message is unread -->
+										<a href="#">
+											<span class="line">
+												<strong>Luc Chartier</strong>
+												<span class="light small">- yesterday</span>
+											</span>
+											
+											<span class="line desc small">
+												This ain’t our first item, it is the best of the rest.
+											</span>
+										</a>
+									</li>
+									
+									<li class="active">
+										<a href="#">
+											<span class="line">
+												<strong>Salma Nyberg</strong>
+												<span class="light small">- 2 days ago</span>
+											</span>
+											
+											<span class="line desc small">
+												Oh he decisively impression attachment friendship so if everything. 
+											</span>
+										</a>
+									</li>
+									
+									<li>
+										<a href="#">
+											<span class="line">
+												Hayden Cartwright
+												<span class="light small">- a week ago</span>
+											</span>
+											
+											<span class="line desc small">
+												Whose her enjoy chief new young. Felicity if ye required likewise so doubtful.
+											</span>
+										</a>
+									</li>
+									
+									<li>
+										<a href="#">
+											<span class="line">
+												Sandra Eberhardt
+												<span class="light small">- 16 days ago</span>
+											</span>
+											
+											<span class="line desc small">
+												On so attention necessary at by provision otherwise existence direction.
+											</span>
+										</a>
+									</li>
+									
+								</ul>
+								
+							</li>
+							
+							<li class="external">
+								<a href="blank-sidebar.html">
+									<span>All Messages</span>
+									<i class="fa-link-ext"></i>
+								</a>
+							</li>
+						</ul>
+					</li>
+					
+					<li class="dropdown hover-line">
+						<a href="#" data-toggle="dropdown">
+							<i class="fa-bell-o"></i>
+							<span class="badge badge-purple">7</span>
+						</a>
+							
+						<ul class="dropdown-menu notifications">
+							<li class="top">
+								<p class="small">
+									<a href="#" class="pull-right">Mark all Read</a>
+									You have <strong>3</strong> new notifications.
+								</p>
+							</li>
+							
+							<li>
+								<ul class="dropdown-menu-list list-unstyled ps-scrollbar">
+									<li class="active notification-success">
+										<a href="#">
+											<i class="fa-user"></i>
+											
+											<span class="line">
+												<strong>New user registered</strong>
+											</span>
+											
+											<span class="line small time">
+												30 seconds ago
+											</span>
+										</a>
+									</li>
+									
+									<li class="active notification-secondary">
+										<a href="#">
+											<i class="fa-lock"></i>
+											
+											<span class="line">
+												<strong>Privacy settings have been changed</strong>
+											</span>
+											
+											<span class="line small time">
+												3 hours ago
+											</span>
+										</a>
+									</li>
+									
+									<li class="notification-primary">
+										<a href="#">
+											<i class="fa-thumbs-up"></i>
+											
+											<span class="line">
+												<strong>Someone special liked this</strong>
+											</span>
+											
+											<span class="line small time">
+												2 minutes ago
+											</span>
+										</a>
+									</li>
+									
+									<li class="notification-danger">
+										<a href="#">
+											<i class="fa-calendar"></i>
+											
+											<span class="line">
+												John cancelled the event
+											</span>
+											
+											<span class="line small time">
+												9 hours ago
+											</span>
+										</a>
+									</li>
+									
+									<li class="notification-info">
+										<a href="#">
+											<i class="fa-database"></i>
+											
+											<span class="line">
+												The server is status is stable
+											</span>
+											
+											<span class="line small time">
+												yesterday at 10:30am
+											</span>
+										</a>
+									</li>
+									
+									<li class="notification-warning">
+										<a href="#">
+											<i class="fa-envelope-o"></i>
+											
+											<span class="line">
+												New comments waiting approval
+											</span>
+											
+											<span class="line small time">
+												last week
+											</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li class="external">
+								<a href="#">
+									<span>View all notifications</span>
+									<i class="fa-link-ext"></i>
+								</a>
+							</li>
+						</ul>
+					</li>
+					
+				</ul>
+				
+				
+				<!-- Right links for user info navbar -->
+				<ul class="user-info-menu right-links list-inline list-unstyled">
+					
+					<li class="search-form"><!-- You can add "always-visible" to show make the search input visible -->
+						
+						<form method="get" action="extra-search.html">
+							<input type="text" name="s" class="form-control search-field" placeholder="Type to search..." />
+							
+							<button type="submit" class="btn btn-link">
+								<i class="linecons-search"></i>
+							</button>
+						</form>
+						
+					</li>
+					
+					<li class="dropdown user-profile">
+						<a href="#" data-toggle="dropdown">
+							<img src="assets/images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+							<span>
+								Arlind Nushi
+								<i class="fa-angle-down"></i>
+							</span>
+						</a>
+						
+						<ul class="dropdown-menu user-profile-menu list-unstyled">
+							<li>
+								<a href="#edit-profile">
+									<i class="fa-edit"></i>
+									New Post
+								</a>
+							</li>
+							<li>
+								<a href="#settings">
+									<i class="fa-wrench"></i>
+									Settings
+								</a>
+							</li>
+							<li>
+								<a href="#profile">
+									<i class="fa-user"></i>
+									Profile
+								</a>
+							</li>
+							<li>
+								<a href="#help">
+									<i class="fa-info"></i>
+									Help
+								</a>
+							</li>
+							<li class="last">
+								<a href="extra-lockscreen.html">
+									<i class="fa-lock"></i>
+									Logout
+								</a>
+							</li>
+						</ul>
+					</li>
+					
+					<li>
+						<a href="#" data-toggle="chat">
+							<i class="fa-comments-o"></i>
+						</a>
+					</li>
+					
+				</ul>
+				
+			</nav>
+			<div class="page-title">
+				
+				<div class="title-env">
+					<h1 class="title">Elusive</h1>
+					<p class="description">299 Sleek vector icons for bootstrap, a webfont that can be used with any of your projects</p>
+				</div>
+				
+					<div class="breadcrumb-env">
+					
+								<ol class="breadcrumb bc-1">
+									<li>
+							<a href="dashboard-1.html"><i class="fa-home"></i>Home</a>
+						</li>
+								<li>
+						
+										<a href="extra-gallery.html">Extra</a>
+								</li>
+							<li>
+						
+										<a href="extra-icons-fontawesome.html">Icons</a>
+								</li>
+							<li class="active">
+						
+										<strong>Elusive</strong>
+								</li>
+								</ol>
+								
+				</div>
+					
+			</div>
+			
+			<div class="row">
+				<div class="col-md-3">
+				
+					<div id="toc"></div>
+					
+				</div>
+				
+				<div class="col-md-9">
+					
+					<div class="tocify-content">
+			
+						<div class="icon-collection">
+						
+							<h2 class="page-header hidden">Icons</h2>
+					
+							<div class="fontawesome-icon-list">
+					
+								<div class="fa-hover"><i class="el-glass"></i> <span>el-glass</span></div>
+			
+								<div class="fa-hover"><i class="el-music"></i> <span>el-music</span></div>
+								
+								<div class="fa-hover"><i class="el-search"></i> <span>el-search</span></div>
+								
+								<div class="fa-hover"><i class="el-search-circled"></i> <span>el-search-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-mail"></i> <span>el-mail</span></div>
+								
+								<div class="fa-hover"><i class="el-mail-circled"></i> <span>el-mail-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-heart"></i> <span>el-heart</span></div>
+								
+								<div class="fa-hover"><i class="el-heart-circled"></i> <span>el-heart-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-heart-empty"></i> <span>el-heart-empty</span></div>
+								
+								<div class="fa-hover"><i class="el-star"></i> <span>el-star</span></div>
+								
+								<div class="fa-hover"><i class="el-star-circled"></i> <span>el-star-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-star-empty"></i> <span>el-star-empty</span></div>
+								
+								<div class="fa-hover"><i class="el-user"></i> <span>el-user</span></div>
+								
+								<div class="fa-hover"><i class="el-group"></i> <span>el-group</span></div>
+								
+								<div class="fa-hover"><i class="el-group-circled"></i> <span>el-group-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-torso"></i> <span>el-torso</span></div>
+								
+								<div class="fa-hover"><i class="el-video"></i> <span>el-video</span></div>
+								
+								<div class="fa-hover"><i class="el-video-circled"></i> <span>el-video-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-video-alt"></i> <span>el-video-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-videocam"></i> <span>el-videocam</span></div>
+								
+								<div class="fa-hover"><i class="el-video-chat"></i> <span>el-video-chat</span></div>
+								
+								<div class="fa-hover"><i class="el-picture"></i> <span>el-picture</span></div>
+								
+								<div class="fa-hover"><i class="el-camera"></i> <span>el-camera</span></div>
+								
+								<div class="fa-hover"><i class="el-photo"></i> <span>el-photo</span></div>
+								
+								<div class="fa-hover"><i class="el-photo-circled"></i> <span>el-photo-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-th-large"></i> <span>el-th-large</span></div>
+								
+								<div class="fa-hover"><i class="el-th"></i> <span>el-th</span></div>
+								
+								<div class="fa-hover"><i class="el-th-list"></i> <span>el-th-list</span></div>
+								
+								<div class="fa-hover"><i class="el-view-mode"></i> <span>el-view-mode</span></div>
+								
+								<div class="fa-hover"><i class="el-ok"></i> <span>el-ok</span></div>
+								
+								<div class="fa-hover"><i class="el-ok-circled"></i> <span>el-ok-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-ok-circled2"></i> <span>el-ok-circled2</span></div>
+								
+								<div class="fa-hover"><i class="el-cancel"></i> <span>el-cancel</span></div>
+								
+								<div class="fa-hover"><i class="el-cancel-circled"></i> <span>el-cancel-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-cancel-circled2"></i> <span>el-cancel-circled2</span></div>
+								
+								<div class="fa-hover"><i class="el-plus"></i> <span>el-plus</span></div>
+								
+								<div class="fa-hover"><i class="el-plus-circled"></i> <span>el-plus-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-minus"></i> <span>el-minus</span></div>
+								
+								<div class="fa-hover"><i class="el-minus-circled"></i> <span>el-minus-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-help"></i> <span>el-help</span></div>
+								
+								<div class="fa-hover"><i class="el-help-circled"></i> <span>el-help-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-info-circled"></i> <span>el-info-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-home"></i> <span>el-home</span></div>
+								
+								<div class="fa-hover"><i class="el-home-circled"></i> <span>el-home-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-website"></i> <span>el-website</span></div>
+								
+								<div class="fa-hover"><i class="el-website-circled"></i> <span>el-website-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-attach"></i> <span>el-attach</span></div>
+								
+								<div class="fa-hover"><i class="el-attach-circled"></i> <span>el-attach-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-lock"></i> <span>el-lock</span></div>
+								
+								<div class="fa-hover"><i class="el-lock-circled"></i> <span>el-lock-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-lock-open"></i> <span>el-lock-open</span></div>
+								
+								<div class="fa-hover"><i class="el-lock-open-alt"></i> <span>el-lock-open-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-eye"></i> <span>el-eye</span></div>
+								
+								<div class="fa-hover"><i class="el-eye-off"></i> <span>el-eye-off</span></div>
+								
+								<div class="fa-hover"><i class="el-tag"></i> <span>el-tag</span></div>
+								
+								<div class="fa-hover"><i class="el-tags"></i> <span>el-tags</span></div>
+								
+								<div class="fa-hover"><i class="el-bookmark"></i> <span>el-bookmark</span></div>
+								
+								<div class="fa-hover"><i class="el-bookmark-empty"></i> <span>el-bookmark-empty</span></div>
+								
+								<div class="fa-hover"><i class="el-flag"></i> <span>el-flag</span></div>
+								
+								<div class="fa-hover"><i class="el-flag-circled"></i> <span>el-flag-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-thumbs-up"></i> <span>el-thumbs-up</span></div>
+								
+								<div class="fa-hover"><i class="el-thumbs-down"></i> <span>el-thumbs-down</span></div>
+								
+								<div class="fa-hover"><i class="el-download"></i> <span>el-download</span></div>
+								
+								<div class="fa-hover"><i class="el-download-alt"></i> <span>el-download-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-upload"></i> <span>el-upload</span></div>
+								
+								<div class="fa-hover"><i class="el-share"></i> <span>el-share</span></div>
+								
+								<div class="fa-hover"><i class="el-quote"></i> <span>el-quote</span></div>
+								
+								<div class="fa-hover"><i class="el-quote-circled"></i> <span>el-quote-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-export"></i> <span>el-export</span></div>
+								
+								<div class="fa-hover"><i class="el-pencil"></i> <span>el-pencil</span></div>
+								
+								<div class="fa-hover"><i class="el-pencil-circled"></i> <span>el-pencil-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-edit"></i> <span>el-edit</span></div>
+								
+								<div class="fa-hover"><i class="el-edit-circled"></i> <span>el-edit-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-edit-alt"></i> <span>el-edit-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-print"></i> <span>el-print</span></div>
+								
+								<div class="fa-hover"><i class="el-retweet"></i> <span>el-retweet</span></div>
+								
+								<div class="fa-hover"><i class="el-comment"></i> <span>el-comment</span></div>
+								
+								<div class="fa-hover"><i class="el-comment-alt"></i> <span>el-comment-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-bell"></i> <span>el-bell</span></div>
+								
+								<div class="fa-hover"><i class="el-warning"></i> <span>el-warning</span></div>
+								
+								<div class="fa-hover"><i class="el-exclamation"></i> <span>el-exclamation</span></div>
+								
+								<div class="fa-hover"><i class="el-error"></i> <span>el-error</span></div>
+								
+								<div class="fa-hover"><i class="el-error-alt"></i> <span>el-error-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-location"></i> <span>el-location</span></div>
+								
+								<div class="fa-hover"><i class="el-location-circled"></i> <span>el-location-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-compass"></i> <span>el-compass</span></div>
+								
+								<div class="fa-hover"><i class="el-compass-circled"></i> <span>el-compass-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-trash"></i> <span>el-trash</span></div>
+								
+								<div class="fa-hover"><i class="el-trash-circled"></i> <span>el-trash-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-doc"></i> <span>el-doc</span></div>
+								
+								<div class="fa-hover"><i class="el-doc-circled"></i> <span>el-doc-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-doc-new"></i> <span>el-doc-new</span></div>
+								
+								<div class="fa-hover"><i class="el-doc-new-circled"></i> <span>el-doc-new-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-folder"></i> <span>el-folder</span></div>
+								
+								<div class="fa-hover"><i class="el-folder-circled"></i> <span>el-folder-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-folder-close"></i> <span>el-folder-close</span></div>
+								
+								<div class="fa-hover"><i class="el-folder-open"></i> <span>el-folder-open</span></div>
+								
+								<div class="fa-hover"><i class="el-rss"></i> <span>el-rss</span></div>
+								
+								<div class="fa-hover"><i class="el-phone"></i> <span>el-phone</span></div>
+								
+								<div class="fa-hover"><i class="el-phone-circled"></i> <span>el-phone-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-cog"></i> <span>el-cog</span></div>
+								
+								<div class="fa-hover"><i class="el-cog-circled"></i> <span>el-cog-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-cogs"></i> <span>el-cogs</span></div>
+								
+								<div class="fa-hover"><i class="el-wrench"></i> <span>el-wrench</span></div>
+								
+								<div class="fa-hover"><i class="el-wrench-circled"></i> <span>el-wrench-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-basket"></i> <span>el-basket</span></div>
+								
+								<div class="fa-hover"><i class="el-basket-circled"></i> <span>el-basket-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-calendar"></i> <span>el-calendar</span></div>
+								
+								<div class="fa-hover"><i class="el-calendar-circled"></i> <span>el-calendar-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-mic"></i> <span>el-mic</span></div>
+								
+								<div class="fa-hover"><i class="el-mic-circled"></i> <span>el-mic-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-volume-off"></i> <span>el-volume-off</span></div>
+								
+								<div class="fa-hover"><i class="el-volume-down"></i> <span>el-volume-down</span></div>
+								
+								<div class="fa-hover"><i class="el-volume"></i> <span>el-volume</span></div>
+								
+								<div class="fa-hover"><i class="el-volume-up"></i> <span>el-volume-up</span></div>
+								
+								<div class="fa-hover"><i class="el-headphones"></i> <span>el-headphones</span></div>
+								
+								<div class="fa-hover"><i class="el-clock"></i> <span>el-clock</span></div>
+								
+								<div class="fa-hover"><i class="el-clock-circled"></i> <span>el-clock-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-lightbulb"></i> <span>el-lightbulb</span></div>
+								
+								<div class="fa-hover"><i class="el-lightbulb-alt"></i> <span>el-lightbulb-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-block"></i> <span>el-block</span></div>
+								
+								<div class="fa-hover"><i class="el-resize-full"></i> <span>el-resize-full</span></div>
+								
+								<div class="fa-hover"><i class="el-resize-full-alt"></i> <span>el-resize-full-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-resize-small"></i> <span>el-resize-small</span></div>
+								
+								<div class="fa-hover"><i class="el-resize-vertical"></i> <span>el-resize-vertical</span></div>
+								
+								<div class="fa-hover"><i class="el-resize-horizontal"></i> <span>el-resize-horizontal</span></div>
+								
+								<div class="fa-hover"><i class="el-move"></i> <span>el-move</span></div>
+								
+								<div class="fa-hover"><i class="el-zoom-in"></i> <span>el-zoom-in</span></div>
+								
+								<div class="fa-hover"><i class="el-zoom-out"></i> <span>el-zoom-out</span></div>
+								
+								<div class="fa-hover"><i class="el-down-open"></i> <span>el-down-open</span></div>
+								
+								<div class="fa-hover"><i class="el-left-open"></i> <span>el-left-open</span></div>
+								
+								<div class="fa-hover"><i class="el-right-open"></i> <span>el-right-open</span></div>
+								
+								<div class="fa-hover"><i class="el-up-open"></i> <span>el-up-open</span></div>
+								
+								<div class="fa-hover"><i class="el-down"></i> <span>el-down</span></div>
+								
+								<div class="fa-hover"><i class="el-left"></i> <span>el-left</span></div>
+								
+								<div class="fa-hover"><i class="el-right"></i> <span>el-right</span></div>
+								
+								<div class="fa-hover"><i class="el-up"></i> <span>el-up</span></div>
+								
+								<div class="fa-hover"><i class="el-down-circled"></i> <span>el-down-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-left-circled"></i> <span>el-left-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-right-circled"></i> <span>el-right-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-up-circled"></i> <span>el-up-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-down-hand"></i> <span>el-down-hand</span></div>
+								
+								<div class="fa-hover"><i class="el-left-hand"></i> <span>el-left-hand</span></div>
+								
+								<div class="fa-hover"><i class="el-right-hand"></i> <span>el-right-hand</span></div>
+								
+								<div class="fa-hover"><i class="el-up-hand"></i> <span>el-up-hand</span></div>
+								
+								<div class="fa-hover"><i class="el-cw"></i> <span>el-cw</span></div>
+								
+								<div class="fa-hover"><i class="el-cw-circled"></i> <span>el-cw-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-arrows-cw"></i> <span>el-arrows-cw</span></div>
+								
+								<div class="fa-hover"><i class="el-shuffle"></i> <span>el-shuffle</span></div>
+								
+								<div class="fa-hover"><i class="el-play"></i> <span>el-play</span></div>
+								
+								<div class="fa-hover"><i class="el-play-circled"></i> <span>el-play-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-play-circled2"></i> <span>el-play-circled2</span></div>
+								
+								<div class="fa-hover"><i class="el-stop"></i> <span>el-stop</span></div>
+								
+								<div class="fa-hover"><i class="el-stop-circled"></i> <span>el-stop-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-pause"></i> <span>el-pause</span></div>
+								
+								<div class="fa-hover"><i class="el-pause-circled"></i> <span>el-pause-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-record"></i> <span>el-record</span></div>
+								
+								<div class="fa-hover"><i class="el-eject"></i> <span>el-eject</span></div>
+								
+								<div class="fa-hover"><i class="el-backward"></i> <span>el-backward</span></div>
+								
+								<div class="fa-hover"><i class="el-backward-circled"></i> <span>el-backward-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-fast-backward"></i> <span>el-fast-backward</span></div>
+								
+								<div class="fa-hover"><i class="el-fast-forward"></i> <span>el-fast-forward</span></div>
+								
+								<div class="fa-hover"><i class="el-forward"></i> <span>el-forward</span></div>
+								
+								<div class="fa-hover"><i class="el-forward-circled"></i> <span>el-forward-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-step-backward"></i> <span>el-step-backward</span></div>
+								
+								<div class="fa-hover"><i class="el-step-forward"></i> <span>el-step-forward</span></div>
+								
+								<div class="fa-hover"><i class="el-target"></i> <span>el-target</span></div>
+								
+								<div class="fa-hover"><i class="el-signal"></i> <span>el-signal</span></div>
+								
+								<div class="fa-hover"><i class="el-desktop"></i> <span>el-desktop</span></div>
+								
+								<div class="fa-hover"><i class="el-desktop-circled"></i> <span>el-desktop-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-laptop"></i> <span>el-laptop</span></div>
+								
+								<div class="fa-hover"><i class="el-laptop-circled"></i> <span>el-laptop-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-network"></i> <span>el-network</span></div>
+								
+								<div class="fa-hover"><i class="el-inbox"></i> <span>el-inbox</span></div>
+								
+								<div class="fa-hover"><i class="el-inbox-circled"></i> <span>el-inbox-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-inbox-alt"></i> <span>el-inbox-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-globe"></i> <span>el-globe</span></div>
+								
+								<div class="fa-hover"><i class="el-globe-alt"></i> <span>el-globe-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-cloud"></i> <span>el-cloud</span></div>
+								
+								<div class="fa-hover"><i class="el-cloud-circled"></i> <span>el-cloud-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-flight"></i> <span>el-flight</span></div>
+								
+								<div class="fa-hover"><i class="el-leaf"></i> <span>el-leaf</span></div>
+								
+								<div class="fa-hover"><i class="el-font"></i> <span>el-font</span></div>
+								
+								<div class="fa-hover"><i class="el-fontsize"></i> <span>el-fontsize</span></div>
+								
+								<div class="fa-hover"><i class="el-bold"></i> <span>el-bold</span></div>
+								
+								<div class="fa-hover"><i class="el-italic"></i> <span>el-italic</span></div>
+								
+								<div class="fa-hover"><i class="el-text-height"></i> <span>el-text-height</span></div>
+								
+								<div class="fa-hover"><i class="el-text-width"></i> <span>el-text-width</span></div>
+								
+								<div class="fa-hover"><i class="el-align-left"></i> <span>el-align-left</span></div>
+								
+								<div class="fa-hover"><i class="el-align-center"></i> <span>el-align-center</span></div>
+								
+								<div class="fa-hover"><i class="el-align-right"></i> <span>el-align-right</span></div>
+								
+								<div class="fa-hover"><i class="el-align-justify"></i> <span>el-align-justify</span></div>
+								
+								<div class="fa-hover"><i class="el-list"></i> <span>el-list</span></div>
+								
+								<div class="fa-hover"><i class="el-indent-left"></i> <span>el-indent-left</span></div>
+								
+								<div class="fa-hover"><i class="el-indent-right"></i> <span>el-indent-right</span></div>
+								
+								<div class="fa-hover"><i class="el-briefcase"></i> <span>el-briefcase</span></div>
+								
+								<div class="fa-hover"><i class="el-off"></i> <span>el-off</span></div>
+								
+								<div class="fa-hover"><i class="el-road"></i> <span>el-road</span></div>
+								
+								<div class="fa-hover"><i class="el-qrcode"></i> <span>el-qrcode</span></div>
+								
+								<div class="fa-hover"><i class="el-barcode"></i> <span>el-barcode</span></div>
+								
+								<div class="fa-hover"><i class="el-braille"></i> <span>el-braille</span></div>
+								
+								<div class="fa-hover"><i class="el-book"></i> <span>el-book</span></div>
+								
+								<div class="fa-hover"><i class="el-adjust"></i> <span>el-adjust</span></div>
+								
+								<div class="fa-hover"><i class="el-tint"></i> <span>el-tint</span></div>
+								
+								<div class="fa-hover"><i class="el-check"></i> <span>el-check</span></div>
+								
+								<div class="fa-hover"><i class="el-check-empty"></i> <span>el-check-empty</span></div>
+								
+								<div class="fa-hover"><i class="el-asterisk"></i> <span>el-asterisk</span></div>
+								
+								<div class="fa-hover"><i class="el-gift"></i> <span>el-gift</span></div>
+								
+								<div class="fa-hover"><i class="el-fire"></i> <span>el-fire</span></div>
+								
+								<div class="fa-hover"><i class="el-magnet"></i> <span>el-magnet</span></div>
+								
+								<div class="fa-hover"><i class="el-chart"></i> <span>el-chart</span></div>
+								
+								<div class="fa-hover"><i class="el-chart-circled"></i> <span>el-chart-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-credit-card"></i> <span>el-credit-card</span></div>
+								
+								<div class="fa-hover"><i class="el-megaphone"></i> <span>el-megaphone</span></div>
+								
+								<div class="fa-hover"><i class="el-clipboard"></i> <span>el-clipboard</span></div>
+								
+								<div class="fa-hover"><i class="el-hdd"></i> <span>el-hdd</span></div>
+								
+								<div class="fa-hover"><i class="el-key"></i> <span>el-key</span></div>
+								
+								<div class="fa-hover"><i class="el-certificate"></i> <span>el-certificate</span></div>
+								
+								<div class="fa-hover"><i class="el-tasks"></i> <span>el-tasks</span></div>
+								
+								<div class="fa-hover"><i class="el-filter"></i> <span>el-filter</span></div>
+								
+								<div class="fa-hover"><i class="el-gauge"></i> <span>el-gauge</span></div>
+								
+								<div class="fa-hover"><i class="el-smiley"></i> <span>el-smiley</span></div>
+								
+								<div class="fa-hover"><i class="el-smiley-circled"></i> <span>el-smiley-circled</span></div>
+								
+								<div class="fa-hover"><i class="el-address-book"></i> <span>el-address-book</span></div>
+								
+								<div class="fa-hover"><i class="el-address-book-alt"></i> <span>el-address-book-alt</span></div>
+								
+								<div class="fa-hover"><i class="el-asl"></i> <span>el-asl</span></div>
+								
+								<div class="fa-hover"><i class="el-glasses"></i> <span>el-glasses</span></div>
+								
+								<div class="fa-hover"><i class="el-hearing-impaired"></i> <span>el-hearing-impaired</span></div>
+								
+								<div class="fa-hover"><i class="el-iphone-home"></i> <span>el-iphone-home</span></div>
+								
+								<div class="fa-hover"><i class="el-person"></i> <span>el-person</span></div>
+								
+								<div class="fa-hover"><i class="el-adult"></i> <span>el-adult</span></div>
+								
+								<div class="fa-hover"><i class="el-child"></i> <span>el-child</span></div>
+								
+								<div class="fa-hover"><i class="el-blind"></i> <span>el-blind</span></div>
+								
+								<div class="fa-hover"><i class="el-guidedog"></i> <span>el-guidedog</span></div>
+								
+								<div class="fa-hover"><i class="el-accessibility"></i> <span>el-accessibility</span></div>
+								
+								<div class="fa-hover"><i class="el-universal-access"></i> <span>el-universal-access</span></div>
+								
+								<div class="fa-hover"><i class="el-male"></i> <span>el-male</span></div>
+								
+								<div class="fa-hover"><i class="el-female"></i> <span>el-female</span></div>
+								
+								<div class="fa-hover"><i class="el-behance"></i> <span>el-behance</span></div>
+								
+								<div class="fa-hover"><i class="el-blogger"></i> <span>el-blogger</span></div>
+								
+								<div class="fa-hover"><i class="el-cc"></i> <span>el-cc</span></div>
+								
+								<div class="fa-hover"><i class="el-css"></i> <span>el-css</span></div>
+								
+								<div class="fa-hover"><i class="el-delicious"></i> <span>el-delicious</span></div>
+								
+								<div class="fa-hover"><i class="el-deviantart"></i> <span>el-deviantart</span></div>
+								
+								<div class="fa-hover"><i class="el-digg"></i> <span>el-digg</span></div>
+								
+								<div class="fa-hover"><i class="el-dribbble"></i> <span>el-dribbble</span></div>
+								
+								<div class="fa-hover"><i class="el-facebook"></i> <span>el-facebook</span></div>
+								
+								<div class="fa-hover"><i class="el-flickr"></i> <span>el-flickr</span></div>
+								
+								<div class="fa-hover"><i class="el-foursquare"></i> <span>el-foursquare</span></div>
+								
+								<div class="fa-hover"><i class="el-friendfeed"></i> <span>el-friendfeed</span></div>
+								
+								<div class="fa-hover"><i class="el-friendfeed-rect"></i> <span>el-friendfeed-rect</span></div>
+								
+								<div class="fa-hover"><i class="el-github"></i> <span>el-github</span></div>
+								
+								<div class="fa-hover"><i class="el-github-text"></i> <span>el-github-text</span></div>
+								
+								<div class="fa-hover"><i class="el-googleplus"></i> <span>el-googleplus</span></div>
+								
+								<div class="fa-hover"><i class="el-instagram"></i> <span>el-instagram</span></div>
+								
+								<div class="fa-hover"><i class="el-linkedin"></i> <span>el-linkedin</span></div>
+								
+								<div class="fa-hover"><i class="el-path"></i> <span>el-path</span></div>
+								
+								<div class="fa-hover"><i class="el-picasa"></i> <span>el-picasa</span></div>
+								
+								<div class="fa-hover"><i class="el-pinterest"></i> <span>el-pinterest</span></div>
+								
+								<div class="fa-hover"><i class="el-reddit"></i> <span>el-reddit</span></div>
+								
+								<div class="fa-hover"><i class="el-skype"></i> <span>el-skype</span></div>
+								
+								<div class="fa-hover"><i class="el-slideshare"></i> <span>el-slideshare</span></div>
+								
+								<div class="fa-hover"><i class="el-stackoverflow"></i> <span>el-stackoverflow</span></div>
+								
+								<div class="fa-hover"><i class="el-stumbleupon"></i> <span>el-stumbleupon</span></div>
+								
+								<div class="fa-hover"><i class="el-twitter"></i> <span>el-twitter</span></div>
+								
+								<div class="fa-hover"><i class="el-tumblr"></i> <span>el-tumblr</span></div>
+								
+								<div class="fa-hover"><i class="el-vimeo"></i> <span>el-vimeo</span></div>
+								
+								<div class="fa-hover"><i class="el-vkontakte"></i> <span>el-vkontakte</span></div>
+								
+								<div class="fa-hover"><i class="el-w3c"></i> <span>el-w3c</span></div>
+								
+								<div class="fa-hover"><i class="el-wordpress"></i> <span>el-wordpress</span></div>
+								
+								<div class="fa-hover"><i class="el-youtube"></i> <span>el-youtube</span></div>
+					
+					
+							</div>
+						
+						</div>
+					
+					</div>
+					
+				</div>
+			</div>
+							
+							
+			<!-- Main Footer -->
+			<!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
+			<!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
+			<!-- Or class "fixed" to  always fix the footer to the end of page -->
+			<footer class="main-footer sticky footer-type-1">
+				
+				<div class="footer-inner">
+				
+					<!-- Add your copyright text here -->
+					<div class="footer-text">
+						&copy; 2014 
+						<strong>Xenon</strong> 
+						More Templates <a href="http://www.mycodes.net/" target="_blank" title="源码之家">源码之家</a> - Collect from <a href="#/" title="网页模板" target="_blank">网页模板</a>
+					</div>
+					
+					
+					<!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
+					<div class="go-up">
+					
+						<a href="#" rel="go-top">
+							<i class="fa-angle-up"></i>
+						</a>
+						
+					</div>
+					
+				</div>
+				
+			</footer>
+		</div>
+		
+			
+		<!-- start: Chat Section -->
+		<div id="chat" class="fixed">
+			
+			<div class="chat-inner">
+			
+				
+				<h2 class="chat-header">
+					<a href="#" class="chat-close" data-toggle="chat">
+						<i class="fa-plus-circle rotate-45deg"></i>
+					</a>
+					
+					Chat
+					<span class="badge badge-success is-hidden">0</span>
+				</h2>
+				
+				<script type="text/javascript">
+				// Here is just a sample how to open chat conversation box
+				jQuery(document).ready(function($)
+				{
+					var $chat_conversation = $(".chat-conversation");
+					
+					$(".chat-group a").on('click', function(ev)
+					{
+						ev.preventDefault();
+						
+						$chat_conversation.toggleClass('is-open');
+						
+						$(".chat-conversation textarea").trigger('autosize.resize').focus();
+					});
+					
+					$(".conversation-close").on('click', function(ev)
+					{
+						ev.preventDefault();
+						$chat_conversation.removeClass('is-open');
+					});
+				});
+				</script>
+				
+				
+				<div class="chat-group">
+					<strong>Favorites</strong>
+					
+					<a href="#"><span class="user-status is-online"></span> <em>Catherine J. Watkins</em></a>
+					<a href="#"><span class="user-status is-online"></span> <em>Nicholas R. Walker</em></a>
+					<a href="#"><span class="user-status is-busy"></span> <em>Susan J. Best</em></a>
+					<a href="#"><span class="user-status is-idle"></span> <em>Fernando G. Olson</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Brandon S. Young</em></a>
+				</div>
+				
+				
+				<div class="chat-group">
+					<strong>Work</strong>
+					
+					<a href="#"><span class="user-status is-busy"></span> <em>Rodrigo E. Lozano</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Robert J. Garcia</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Daniel A. Pena</em></a>
+				</div>
+				
+				
+				<div class="chat-group">
+					<strong>Other</strong>
+					
+					<a href="#"><span class="user-status is-online"></span> <em>Dennis E. Johnson</em></a>
+					<a href="#"><span class="user-status is-online"></span> <em>Stuart A. Shire</em></a>
+					<a href="#"><span class="user-status is-online"></span> <em>Janet I. Matas</em></a>
+					<a href="#"><span class="user-status is-online"></span> <em>Mindy A. Smith</em></a>
+					<a href="#"><span class="user-status is-busy"></span> <em>Herman S. Foltz</em></a>
+					<a href="#"><span class="user-status is-busy"></span> <em>Gregory E. Robie</em></a>
+					<a href="#"><span class="user-status is-busy"></span> <em>Nellie T. Foreman</em></a>
+					<a href="#"><span class="user-status is-busy"></span> <em>William R. Miller</em></a>
+					<a href="#"><span class="user-status is-idle"></span> <em>Vivian J. Hall</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Melinda A. Anderson</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Gary M. Mooneyham</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Robert C. Medina</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Dylan C. Bernal</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Marc P. Sanborn</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Kenneth M. Rochester</em></a>
+					<a href="#"><span class="user-status is-offline"></span> <em>Rachael D. Carpenter</em></a>
+				</div>
+			
+			</div>
+			
+			<!-- conversation template -->
+			<div class="chat-conversation">
+				
+				<div class="conversation-header">
+					<a href="#" class="conversation-close">
+						&times;
+					</a>
+					
+					<span class="user-status is-online"></span>
+					<span class="display-name">Arlind Nushi</span> 
+					<small>Online</small>
+				</div>
+				
+				<ul class="conversation-body">	
+					<li>
+						<span class="user">Arlind Nushi</span>
+						<span class="time">09:00</span>
+						<p>Are you here?</p>
+					</li>
+					<li class="odd">
+						<span class="user">Brandon S. Young</span>
+						<span class="time">09:25</span>
+						<p>This message is pre-queued.</p>
+					</li>
+					<li>
+						<span class="user">Brandon S. Young</span>
+						<span class="time">09:26</span>
+						<p>Whohoo!</p>
+					</li>
+					<li class="odd">
+						<span class="user">Arlind Nushi</span>
+						<span class="time">09:27</span>
+						<p>Do you like it?</p>
+					</li>
+				</ul>
+				
+				<div class="chat-textarea">
+					<textarea class="form-control autogrow" placeholder="Type your message"></textarea>
+				</div>
+				
+			</div>
+			
+		</div>
+		<!-- end: Chat Section -->
+		
+		
+	</div>
+	
+	
+	
+
+
+
+
+	<!-- Imported styles on this page -->
+	<link rel="stylesheet" href="assets/css/fonts/elusive/css/elusive.css">
+
+	<!-- Bottom Scripts -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/TweenMax.min.js"></script>
+	<script src="assets/js/resizeable.js"></script>
+	<script src="assets/js/joinable.js"></script>
+	<script src="assets/js/xenon-api.js"></script>
+	<script src="assets/js/xenon-toggles.js"></script>
+	<script src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+
+
+	<!-- Imported scripts on this page -->
+	<script src="assets/js/tocify/jquery.tocify.min.js"></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src="assets/js/xenon-custom.js"></script>
+
+</body>
+</html>
