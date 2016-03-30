@@ -16,4 +16,4 @@
 
 ##版权声明
 
-[id]: http://example.com "呐呐科技"
+[Copyright by Nana 2016](http://example.com)
