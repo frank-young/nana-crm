@@ -16,4 +16,4 @@
 
 ##版权声明
 
-[Copyright by Nana 2016](http://example.com)
+Copyright by Nana 2016 ([http://example.com](http://example.com))
