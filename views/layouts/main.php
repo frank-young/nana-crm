@@ -192,188 +192,13 @@ AppAsset::register($this);
 				<ul id="main-menu" class="main-menu">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
-					<li>
-						<a href="dashboard-1.html">
-							<i class="linecons-cog"></i>
-							<span class="title">概览</span>
-						</a>
-						<ul>
+
 							<li>
-								<a href="dashboard-1.html">
-									<span class="title">Dashboard 1</span>
-								</a>
+								<?= Html::a('<i class="linecons-globe"></i><span class="title">统筹全局</span>', Url::to(['overview/index'], true))
+								?>
 							</li>
-							<li>
-								<a href="dashboard-2.html">
-									<span class="title">Dashboard 2</span>
-								</a>
-							</li>
-							<li>
-								<a href="dashboard-3.html">
-									<span class="title">Dashboard 3</span>
-								</a>
-							</li>
-							<li>
-								<a href="dashboard-4.html">
-									<span class="title">Dashboard 4</span>
-								</a>
-							</li>
-							<li>
-								<a href="skin-generator.html">
-									<span class="title">Skin Generator</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="layout-variants.html">
-							<i class="linecons-desktop"></i>
-							<span class="title">Layouts</span>
-						</a>
-						<ul>
-							<li>
-								<a href="layout-variants.html">
-									<span class="title">Layout Variants &amp; API</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-collapsed-sidebar.html">
-									<span class="title">Collapsed Sidebar</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-static-sidebar.html">
-									<span class="title">Static Sidebar</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-menu.html">
-									<span class="title">Horizontal Menu</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-plus-sidebar.html">
-									<span class="title">Horizontal &amp; Sidebar Menu</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-menu-click-to-open-subs.html">
-									<span class="title">Horizontal Open On Click</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-menu-min.html">
-									<span class="title">Horizontal Menu Minimal</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-right-sidebar.html">
-									<span class="title">Right Sidebar</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-chat-open.html">
-									<span class="title">Chat Open</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-sidebar-menu-collapsed-right.html">
-									<span class="title">Both Menus &amp; Collapsed</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-boxed.html">
-									<span class="title">Boxed Layout</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-boxed-horizontal-menu.html">
-									<span class="title">Boxed &amp; Horizontal Menu</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="title">weidea.net</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="ui-panels.html">
-							<i class="linecons-note"></i>
-							<span class="title">UI Elements</span>
-						</a>
-						<ul>
-							<li>
-								<a href="ui-panels.html">
-									<span class="title">Panels</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-buttons.html">
-									<span class="title">Buttons</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-tabs-accordions.html">
-									<span class="title">Tabs &amp; Accordions</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-modals.html">
-									<span class="title">Modals</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-breadcrumbs.html">
-									<span class="title">Breadcrumbs</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-blockquotes.html">
-									<span class="title">Blockquotes</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-progressbars.html">
-									<span class="title">Progress Bars</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-navbars.html">
-									<span class="title">Navbars</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-alerts.html">
-									<span class="title">Alerts</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-pagination.html">
-									<span class="title">Pagination</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-typography.html">
-									<span class="title">Typography</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-other-elements.html">
-									<span class="title">Other Elements</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="ui-widgets.html">
-							<i class="linecons-star"></i>
-							<span class="title">Widgets</span>
-						</a>
-					</li>
-					<li class="active opened">
-					<!-- 通过url判断在哪个页面,然后对应显示active -->
+
+					<li ><!--  class="active opened" -->
 						<a href="index.php?r=client%2Fadd">
 							<i class="linecons-user"></i>
 							<span class="title">客户管理</span>
@@ -416,15 +241,14 @@ AppAsset::register($this);
 						</ul>
 					</li>
 					<li>
-					<!-- 通过url判断在哪个页面,然后对应显示active -->
-						<a href="index.php?r=mail%2Findex">
+						<a href="index.php?r=mail%2Finbox">
 							<i class="linecons-mail"></i>
 							<span class="title">邮件管理</span>
 							<span class="label label-success pull-right">6</span>
 						</a>
 						<ul>
 							<li>
-								<?= Html::a('<span class="title">收件箱</span>', Url::to(['mail/index'], true))
+								<?= Html::a('<span class="title">收件箱</span>', Url::to(['mail/inbox'], true))
 								?>
 							</li>
 							<li>
@@ -438,348 +262,140 @@ AppAsset::register($this);
 						</ul>
 					</li>
 					<li>
-						<a href="tables-basic.html">
+						<a href="index.php?r=tracking%2Flist">
+							<i class="linecons-paper-plane"></i>
+							<span class="title">邮件追踪</span>
+						</a>
+						<ul>
+							<li>
+								<?= Html::a('<span class="title">追踪列表</span>', Url::to(['tracking/list'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">邮件定位</span>', Url::to(['tracking/location'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">状态分析</span>', Url::to(['tracking/statistics'], true))
+								?>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="index.php?r=letters%2Findex">
+							<i class="linecons-eye"></i>
+							<span class="title">营销开发信</span>
+						</a>
+						<ul>
+							<li>
+								<?= Html::a('<span class="title">开发信管理</span>', Url::to(['letters/index'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">新开发信</span>', Url::to(['letters/add'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">群发开发信</span>', Url::to(['letters/mass'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">信件列表</span>', Url::to(['letters/list'], true))
+								?>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="index.php?r=product%2Findex">
+							<i class="linecons-diamond"></i>
+							<span class="title">产品库</span>
+						</a>
+						<ul>
+							<li>
+								<?= Html::a('<span class="title">产品管理</span>', Url::to(['product/index'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">新建产品</span>', Url::to(['product/add'], true))
+								?>
+							</li>
+							
+							<li>
+								<?= Html::a('<span class="title">生成PDF</span>', Url::to(['product/pdf'], true))
+								?>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="index.php?r=company%2Frecord">
+							<i class="linecons-star"></i>
+							<span class="title">操作动态</span>
+						</a>
+						<ul>
+							<li>
+								<?= Html::a('<span class="title">操作记录</span>', Url::to(['company/record'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">个人操作记录</span>', Url::to(['company/self'], true))
+								?>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="index.php?r=staff%2Frecord">
+							<i class="linecons-star"></i>
+							<span class="title">查看下属</span>
+						</a>
+						<ul>
+							<li>
+								<?= Html::a('<span class="title">下属管理</span>', Url::to(['staff/index'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">添加下属账号</span>', Url::to(['staff/add'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">下属客户</span>', Url::to(['staff/client'], true))
+								?>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="index.php?r=quotation%2Findex">
+							<i class="linecons-pencil"></i>
+							<span class="title">报价管理</span>
+						</a>
+						<ul>
+							<li>
+								<?= Html::a('<span class="title">报价管理</span>', Url::to(['quotation/index'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">新建报价</span>', Url::to(['quotation/new'], true))
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">生成PDF</span>', Url::to(['quotation/pdf'], true))
+								?>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="index.php?r=statistical%2Findex">
 							<i class="linecons-database"></i>
-							<span class="title">表格</span>
+							<span class="title">统计分析</span>
 						</a>
 						<ul>
 							<li>
-								<a href="tables-basic.html">
-									<span class="title">Basic Tables</span>
-								</a>
-							</li>
-							<li>
-								<a href="tables-responsive.html">
-									<span class="title">Responsive Table</span>
-								</a>
-							</li>
-							<li>
-								<a href="tables-datatables.html">
-									<span class="title">Data Tables</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="forms-native.html">
-							<i class="linecons-params"></i>
-							<span class="title">Forms</span>
-						</a>
-						<ul>
-							<li>
-								<a href="forms-native.html">
-									<span class="title">Native Elements</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-advanced.html">
-									<span class="title">Advanced Plugins</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-wizard.html">
-									<span class="title">Form Wizard</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-validation.html">
-									<span class="title">Form Validation</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-input-masks.html">
-									<span class="title">Input Masks</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-file-upload.html">
-									<span class="title">File Upload</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-editors.html">
-									<span class="title">Editors</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-sliders.html">
-									<span class="title">Sliders</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="extra-gallery.html">
-							<i class="linecons-beaker"></i>
-							<span class="title">Extra</span>
-							<span class="label label-purple pull-right hidden-collapsed">New Items</span>
-						</a>
-						<ul>
-							<li>
-								<a href="extra-icons-fontawesome.html">
-									<span class="title">Icons</span>
-									<span class="label label-warning pull-right">4</span>
-								</a>
-								<ul>
-									<li>
-										<a href="extra-icons-fontawesome.html">
-											<span class="title">Font Awesome</span>
-										</a>
-									</li>
-									<li>
-										<a href="extra-icons-linecons.html">
-											<span class="title">Linecons</span>
-										</a>
-									</li>
-									<li>
-										<a href="extra-icons-elusive.html">
-											<span class="title">Elusive</span>
-										</a>
-									</li>
-									<li>
-										<a href="extra-icons-meteocons.html">
-											<span class="title">Meteocons</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="extra-maps-google.html">
-									<span class="title">Maps</span>
-								</a>
-								<ul>
-									<li>
-										<a href="extra-maps-google.html">
-											<span class="title">Google Maps</span>
-										</a>
-									</li>
-									<li>
-										<a href="extra-maps-advanced.html">
-											<span class="title">Advanced Map</span>
-										</a>
-									</li>
-									<li>
-										<a href="extra-maps-vector.html">
-											<span class="title">Vector Map</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="extra-gallery.html">
-									<span class="title">Gallery</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-calendar.html">
-									<span class="title">Calendar</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-profile.html">
-									<span class="title">Profile</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-login.html">
-									<span class="title">Login</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-lockscreen.html">
-									<span class="title">Lockscreen</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-login-light.html">
-									<span class="title">Login Light</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-timeline.html">
-									<span class="title">Timeline</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-timeline-center.html">
-									<span class="title">Timeline Centerd</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-notes.html">
-									<span class="title">Notes</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-image-crop.html">
-									<span class="title">Image Crop</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-portlets.html">
-									<span class="title">Portlets</span>
-								</a>
-							</li>
-							<li>
-								<a href="blank-sidebar.html">
-									<span class="title">Blank Page</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-search.html">
-									<span class="title">Search</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-invoice.html">
-									<span class="title">Invoice</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-not-found.html">
-									<span class="title">404 Page</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-tocify.html">
-									<span class="title">Tocify</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-loader.html">
-									<span class="title">Loading Progress</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-page-loading-ol.html">
-									<span class="title">Page Loading Overlay</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-notifications.html">
-									<span class="title">Notifications</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-nestable-lists.html">
-									<span class="title">Nestable Lists</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-scrollable.html">
-									<span class="title">Scrollable</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="charts-main.html">
-							<i class="linecons-globe"></i>
-							<span class="title">Charts</span>
-						</a>
-						<ul>
-							<li>
-								<a href="charts-main.html">
-									<span class="title">Chart Variants</span>
-								</a>
-							</li>
-							<li>
-								<a href="charts-range.html">
-									<span class="title">Range Selector</span>
-								</a>
-							</li>
-							<li>
-								<a href="charts-sparklines.html">
-									<span class="title">Sparklines</span>
-								</a>
-							</li>
-							<li>
-								<a href="charts-map.html">
-									<span class="title">Map Charts</span>
-								</a>
-							</li>
-							<li>
-								<a href="charts-gauges.html">
-									<span class="title">Circular Gauges</span>
-								</a>
-							</li>
-							<li>
-								<a href="charts-bar-gauges.html">
-									<span class="title">Bar Gauges</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">
-							<i class="linecons-cloud"></i>
-							<span class="title">Menu Levels</span>
-						</a>
-						<ul>
-							<li>
-								<a href="#">
-									<i class="entypo-flow-line"></i>
-									<span class="title">Menu Level 1.1</span>
-								</a>
-								<ul>
-									<li>
-										<a href="#">
-											<i class="entypo-flow-parallel"></i>
-											<span class="title">Menu Level 2.1</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="entypo-flow-parallel"></i>
-											<span class="title">Menu Level 2.2</span>
-										</a>
-										<ul>
-											<li>
-												<a href="#">
-													<i class="entypo-flow-cascade"></i>
-													<span class="title">Menu Level 3.1</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="entypo-flow-cascade"></i>
-													<span class="title">Menu Level 3.2</span>
-												</a>
-												<ul>
-													<li>
-														<a href="#">
-															<i class="entypo-flow-branch"></i>
-															<span class="title">Menu Level 4.1</span>
-														</a>
-													</li>
-												</ul>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">
-											<i class="entypo-flow-parallel"></i>
-											<span class="title">Menu Level 2.3</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="#">
-									<i class="entypo-flow-line"></i>
-									<span class="title">Menu Level 1.2</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<i class="entypo-flow-line"></i>
-									<span class="title">Menu Level 1.3</span>
-								</a>
+								<?= Html::a('<span class="title">数据统计</span>', Url::to(['statistical/index'], true))
+								?>
 							</li>
 						</ul>
 					</li>
 				</ul>
-						
+				<!-- ./ul	 -->
 			</div>
 			
 		</div>
@@ -1047,8 +663,8 @@ AppAsset::register($this);
 							</li>
 							<li>
 								<a href="#help">
-									<i class="fa-info"></i>
-									帮助信息
+									<i class="fa-unlock-alt"></i>
+									锁定屏幕
 								</a>
 							</li>
 							<li class="last">
