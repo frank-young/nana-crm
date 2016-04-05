@@ -4,14 +4,12 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use yii\web\Controller;
 
-class MailController extends Controller
+class ClientController extends Controller
 {
-    public function behaviors()
+	public function behaviors()
     {
         return [
             'access' => [
@@ -46,17 +44,40 @@ class MailController extends Controller
             ],
         ];
     }
-
-    public function actionInbox()
-    {
-        return $this->render('inbox');
+	public function actionIndex()  
+	{  
+	    return $this->render('index');  
+	} 
+    public function actionAdd()  
+    {  
+        return $this->render('add');  
+    } 
+    public function actionList()  
+    {  
+        return $this->render('list');  
+    } 
+    public function actionLife()  
+    {  
+        return $this->render('life');  
     }
-    public function actionCompose()
-    {
-        return $this->render('compose');
-    }
-    public function actionMessage()
-    {
-        return $this->render('message');
-    }
+    public function actionCompose()  
+    {  
+        return $this->render('compose');  
+    } 
+    public function actionData()  
+    {  
+        return $this->render('data');  
+    } 
+    public function actionManager()  
+    {  
+        return $this->render('manager');  
+    } 
+    public function actionWork()  
+    {  
+        return $this->render('work');  
+    }  
+     public function actionTool()  
+    {  
+        return $this->render('tool');  
+    }  
 }

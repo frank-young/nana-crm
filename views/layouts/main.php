@@ -7,9 +7,11 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\widgets\Pjax;  
 
 AppAsset::register($this);
 ?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -31,6 +33,7 @@ AppAsset::register($this);
 </head>
 <body class="page-body">
 <?php $this->beginBody() ?>
+ 
 	<div class="settings-pane">
 			
 		<a href="#" data-toggle="settings-pane" data-animate="true">
@@ -187,7 +190,6 @@ AppAsset::register($this);
 								
 				</header>
 						
-				
 						
 				<ul id="main-menu" class="main-menu">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
@@ -394,6 +396,22 @@ AppAsset::register($this);
 							</li>
 						</ul>
 					</li>
+					<li>
+						<a href="index.php?r=time%2Findex">
+							<i class="linecons-database"></i>
+							<span class="title">测试链接</span>
+						</a>
+						<ul>
+							<li>
+								<?= Html::a('<span class="title">时间</span>', ['time/time'])
+								?>
+							</li>
+							<li>
+								<?= Html::a('<span class="title">index</span>', ['time/index'])
+								?>
+							</li>
+						</ul>
+					</li>				 
 				</ul>
 				<!-- ./ul	 -->
 			</div>
@@ -685,6 +703,8 @@ AppAsset::register($this);
 				</ul>
 				
 			</nav>
+			
+			
         <?= $content ?>
         <!-- Main Footer -->
 			<!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
@@ -779,21 +799,8 @@ AppAsset::register($this);
 					<a href="#"><span class="user-status is-online"></span> <em>Dennis E. Johnson</em></a>
 					<a href="#"><span class="user-status is-online"></span> <em>Stuart A. Shire</em></a>
 					<a href="#"><span class="user-status is-online"></span> <em>Janet I. Matas</em></a>
-					<a href="#"><span class="user-status is-online"></span> <em>Mindy A. Smith</em></a>
-					<a href="#"><span class="user-status is-busy"></span> <em>Herman S. Foltz</em></a>
-					<a href="#"><span class="user-status is-busy"></span> <em>Gregory E. Robie</em></a>
-					<a href="#"><span class="user-status is-busy"></span> <em>Nellie T. Foreman</em></a>
-					<a href="#"><span class="user-status is-busy"></span> <em>William R. Miller</em></a>
-					<a href="#"><span class="user-status is-idle"></span> <em>Vivian J. Hall</em></a>
-					<a href="#"><span class="user-status is-offline"></span> <em>Melinda A. Anderson</em></a>
-					<a href="#"><span class="user-status is-offline"></span> <em>Gary M. Mooneyham</em></a>
-					<a href="#"><span class="user-status is-offline"></span> <em>Robert C. Medina</em></a>
-					<a href="#"><span class="user-status is-offline"></span> <em>Dylan C. Bernal</em></a>
-					<a href="#"><span class="user-status is-offline"></span> <em>Marc P. Sanborn</em></a>
-					<a href="#"><span class="user-status is-offline"></span> <em>Kenneth M. Rochester</em></a>
-					<a href="#"><span class="user-status is-offline"></span> <em>Rachael D. Carpenter</em></a>
+					 
 				</div>
-			
 			</div>
 			
 			<!-- conversation template -->
@@ -851,7 +858,8 @@ AppAsset::register($this);
 	// 	show_loading_bar(100);
 	// }
 </script>
-</body
+
+</body>
 </html>
 
 <?php $this->endPage() ?>

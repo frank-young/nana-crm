@@ -1,31 +1,28 @@
+<?php
 
+use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
+
+$this->title = '收件箱';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+			
 			<div class="page-title">
 				
 				<div class="title-env">
-					<h1 class="title">邮箱</h1>
+					<h1 class="title"><?= Html::encode($this->title) ?></h1>
 					<p class="description">方便快捷管理您的企业邮件</p>
 				</div>
 				
-					<div class="breadcrumb-env">
-					
-								<ol class="breadcrumb bc-1">
-									<li>
-							<a href="dashboard-1.html"><i class="fa-home"></i>主页</a>
-						</li>
-								<li>
+				<div class="breadcrumb-env">
 						
-										<a href="mailbox-main.html">邮箱</a>
-								</li>
-							<li class="active">
-						
-										<strong>收件箱</strong>
-								</li>
-								</ol>
-								
+					<?= Breadcrumbs::widget([
+			            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+			        ]) ?>
+							
 				</div>
 					
 			</div>
-			
 			<section class="mailbox-env">
 				
 				<div class="row">
