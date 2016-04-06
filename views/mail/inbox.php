@@ -93,7 +93,7 @@ $this->params['breadcrumbs'][] = $this->title;
 											<div class="mail-select-options">全选</div>
 											
 											<div class="mail-pagination">
-												显示 <strong>1至 30</strong> / 共<strong>789</strong> 封邮件
+												显示 <strong>1至 30</strong> / 共<strong><?=Html::encode($total)?></strong> 封邮件
 												
 												<div class="next-prev">
 													<a href="#"><i class="fa-angle-left"></i></a>
@@ -128,7 +128,9 @@ $this->params['breadcrumbs'][] = $this->title;
 								
 								<!-- email list -->
 								<tbody>
-									
+									<?php
+									foreach($head as $value){
+										?>
 									<tr class="unread">
 										<td class="col-cb">
 											<div class="checkbox checkbox-replace">
@@ -139,63 +141,19 @@ $this->params['breadcrumbs'][] = $this->title;
 											<a href="#" class="star">
 												<i class="fa-star-empty"></i>
 											</a>
-											<a href="mailbox-message.html" class="col-name">呐呐科技</a>
+											<a href="mailbox-message.html" class="col-name"><?=$head['subject']?></a>
 										</td>
 										<td class="col-subject">
 											<a href="mailbox-message.html">
-												谷歌广告：谷歌关键词服务
+												<?=$head['subject']?>
 											</a>
 										</td>
 										<td class="col-options hidden-sm hidden-xs"></td>
 										<td class="col-time">08:40</td>
-									</tr>
-									
-									<tr class="unread"><!-- new email class: unread -->
-										<td class="col-cb">
-											<div class="checkbox checkbox-replace">
-												<input type="checkbox" class="cbr" />
-											</div>
-										</td>
-										<td class="col-name">
-											<a href="#" class="star starred">
-												<i class="fa-star"></i>
-											</a>
-											<a href="mailbox-message.html" class="col-name">呐呐科技</a>
-										</td>
-										<td class="col-subject">
-											<a href="mailbox-message.html">
-												重置账户密码
-											</a>
-										</td>
-										<td class="col-options hidden-sm hidden-xs">
-											<a href="mailbox-message.html"><i class="linecons-attach"></i></a>
-										</td>
-										<td class="col-time">11:17</td>
-									</tr>
-									
-									<tr>
-										<td class="col-cb">
-											<div class="checkbox checkbox-replace">
-												<input type="checkbox" class="cbr" />
-											</div>
-										</td>
-										<td class="col-name">
-											<a href="#" class="star">
-												<i class="fa-star-empty"></i>
-											</a>
-											<a href="mailbox-message.html" class="col-name">呐呐科技</a>
-										</td>
-										<td class="col-subject">
-											<a href="mailbox-message.html">
-												<span class="label label-danger">订单</span>
-												您有一个新订单
-											</a>
-										</td>
-										<td class="col-options hidden-sm hidden-xs"></td>
-										<td class="col-time">Today</td>
-									</tr>
-									
-									
+									</tr>	
+									<?php
+									 } 
+									 ?>				
 								</tbody>
 								
 							</table>

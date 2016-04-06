@@ -1,6 +1,7 @@
 <?php
 
 $params = require(__DIR__ . '/params.php');
+Yii::$classMap['Receivemail'] = '@app/vendor/webmail/Receivemail.php';
 
 $config = [
     'id' => 'basic',

@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use Receivemail;
 
 class MailController extends Controller
 {
@@ -47,9 +48,33 @@ class MailController extends Controller
         ];
     }
 
-    public function actionInbox()
-    {
-        return $this->render('inbox');
+    public function actionInbox(){
+       
+        $host = 'imap.qq.com';
+        $mail='yangjunalns@qq.com'; 
+        $password = 'jxbqtbonmoobbejd';
+        $port = '993';
+
+        $obj= new receiveMail($host,$mail,$password,'imap',$port,true,false);
+        $total = $obj->get_total_emails();
+        $unread = $obj->get_unread_emails();
+        $obj->connect(); 
+        if($obj->is_connected()){
+            $tot = $obj->get_total_emails(); 
+            $unread = $obj->get_unread_emails();
+            for($i=100;$i>90;$i--){
+                $head = $obj->get_email_header($i);
+                        $head['subject'] = $head['subject'];
+                        $head['replyTo'] = $head['replyTo'];
+                        $head['datetime'] = $head['datetime'];
+                return $this->render('inbox',[
+                    'head'=>$head,
+                    'total'=>$total,
+                    'unread'=>$unread,
+                ]);
+            }
+        }
+        $obj->close_mailbox(); 
     }
     public function actionCompose()
     {
