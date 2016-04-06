@@ -716,7 +716,7 @@ AppAsset::register($this);
 				
 					<!-- Add your copyright text here -->
 					<div class="footer-text">
-						&copy; 2016 
+						&copy; <?php echo date("Y")?>
 						<strong>呐呐科技</strong> 
 						版权所有 (<a href="http://www.nana-1.net/" target="_blank" title="呐呐科技">www.nana-1.com</a>)
 					</div>

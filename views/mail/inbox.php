@@ -115,7 +115,7 @@ $this->params['breadcrumbs'][] = $this->title;
 											<div class="mail-select-options">全选</div>
 											
 											<div class="mail-pagination">
-												显示 <strong>1至 30</strong> / 共<strong>789</strong> 封邮件
+												显示 <strong>1至 30</strong> / 共<strong><?=Html::encode($total)?></strong> 封邮件
 												
 												<div class="next-prev">
 													<a href="#"><i class="fa-angle-left"></i></a>
@@ -129,7 +129,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								<!-- email list -->
 								<tbody>
 									<?php
-									foreach($head as $value){
+									foreach($array as $key=>$value):
 										?>
 									<tr class="unread">
 										<td class="col-cb">
@@ -141,18 +141,38 @@ $this->params['breadcrumbs'][] = $this->title;
 											<a href="#" class="star">
 												<i class="fa-star-empty"></i>
 											</a>
-											<a href="mailbox-message.html" class="col-name"><?=$head['subject']?></a>
+											<a href="mailbox-message.html" class="col-name"><?=Html::encode($value['replyToName'])?></a>
 										</td>
 										<td class="col-subject">
-											<a href="mailbox-message.html">
-												<?=$head['subject']?>
+											<a href="message.php">
+												<?=Html::encode($value['subject'])?>
 											</a>
 										</td>
 										<td class="col-options hidden-sm hidden-xs"></td>
-										<td class="col-time">08:40</td>
+										<td class="col-time">
+											<?php
+												$time = strtotime('now') - $value['datetime'];
+												$dayNow = date("m-d",strtotime('now'));
+												$day = date("m-d",$value['datetime']);
+												$weekarray=array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+												
+												if($dayNow==$day&&$time<24*60*60){
+													echo date('H:i',$value['datetime']);
+												}else if($dayNow!=$day){	//日期不相等，并且时间小于两天，就是昨天
+													if($time<=24*60*60*1){
+														echo "昨天";
+													}else if($time<=24*60*60*6){	//预留了5天
+														echo $weekarray[date("w",$value['datetime'])];	//输出中文星期 
+													}
+												}else{
+													echo date("m-d",$value['datetime']);// 其他日期
+												}
+												
+											?>
+										</td>
 									</tr>	
 									<?php
-									 } 
+									 endforeach;
 									 ?>				
 								</tbody>
 								
@@ -177,7 +197,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								<li class="active">
 									<a href="#">
 										收件箱
-										<span class="badge badge-success pull-right">6</span>
+										<span class="badge badge-success pull-right"><?=Html::encode(count($unread))?></span>
 									</a>
 								</li>
 								<li>
