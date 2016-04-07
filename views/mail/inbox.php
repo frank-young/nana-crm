@@ -2,11 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
+use yii\widgets\Pjax;
 
 $this->title = '收件箱';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-			
+<?php Pjax::begin(); ?>
 			<div class="page-title">
 				
 				<div class="title-env">
@@ -93,11 +94,11 @@ $this->params['breadcrumbs'][] = $this->title;
 											<div class="mail-select-options">全选</div>
 											
 											<div class="mail-pagination">
-												显示 <strong>1至 30</strong> / 共<strong><?=Html::encode($total)?></strong> 封邮件
+												显示 <strong><?=Html::encode($offset+1)?>至 <?=Html::encode($offset+20)?></strong> / 共<strong><?=Html::encode($total)?></strong> 封邮件
 												
 												<div class="next-prev">
-													<a href="#"><i class="fa-angle-left"></i></a>
-													<a href="#"><i class="fa-angle-right"></i></a>
+													<a href="index.php?r=mail/inbox&offset=<?=$offset-1?>"><i class="fa-angle-left"></i></a>
+													<a href="index.php?r=mail/inbox&offset=<?=$offset+1?>"><i class="fa-angle-right"></i></a>
 												</div>
 											</div>
 										</th>
@@ -115,11 +116,11 @@ $this->params['breadcrumbs'][] = $this->title;
 											<div class="mail-select-options">全选</div>
 											
 											<div class="mail-pagination">
-												显示 <strong>1至 30</strong> / 共<strong><?=Html::encode($total)?></strong> 封邮件
+												显示 <strong><?=Html::encode($offset+1)?>至 <?=Html::encode($offset+20)?></strong> / 共<strong><?=Html::encode($total)?></strong> 封邮件
 												
 												<div class="next-prev">
-													<a href="#"><i class="fa-angle-left"></i></a>
-													<a href="#"><i class="fa-angle-right"></i></a>
+													<a href="index.php?r=mail/inbox&offset=<?=$offset-1?>"><i class="fa-angle-left"></i></a>
+													<a href="index.php?r=mail/inbox&offset=<?=$offset+1?>"><i class="fa-angle-right"></i></a>
 												</div>
 											</div>
 										</th>
@@ -201,9 +202,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									</a>
 								</li>
 								<li>
-									<a href="#">
-										发件箱
-									</a>
+									<?= Html::a('发件箱', ['mail/compose'])?>
 								</li>
 								<li>
 									<a href="#">
@@ -254,7 +253,8 @@ $this->params['breadcrumbs'][] = $this->title;
 				</div>
 				
 			</section>
-			
+
+<?php Pjax::end(); ?>		
 		
 		
 			

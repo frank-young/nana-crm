@@ -57,14 +57,15 @@ class MailController extends Controller
         $password = 'jxbqtbonmoobbejd';
         $port = '993';
         $array = [];
+        $offset = 0;
         $obj= new receiveMail($host,$mail,$password,'imap',$port,true,false);
         
 
         $obj->connect(); 
         if($obj->is_connected()){
-            $pageSize = 10;
+            $pageSize = 20;     /*每页数量*/
             $request = Yii::$app->request;
-            $offset = $request->get('offset'); 
+            $offset = $request->get('offset');  /*获取传递过来的偏移量*/
 
             $total = $obj->get_total_emails();  /*总共邮件数量*/
             $unread = $obj->get_unread_emails();    /*未读邮件数量*/
@@ -75,14 +76,12 @@ class MailController extends Controller
                 $head = $obj->get_email_header($i);
                 $array[$i] = $head;
             }
-            //分页
-            // $pages = new Pagination(['totalCount' =>$total, 'pageSize' => '5']);
-            // $model = $array->offset($pages->offset)->limit($pages->limit);
-            // echo $obj->listMessages();
+
             return $this->render('inbox',[
                     'array'=>$array,
                     'total'=>$total,
                     'unread'=>$unread,
+                    'offset'=>$offset
                 ]);
         }
         $obj->close_mailbox(); 

@@ -196,7 +196,7 @@ AppAsset::register($this);
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 
 							<li>
-								<?= Html::a('<i class="linecons-globe"></i><span class="title">统筹全局</span>', Url::to(['overview/index'], true))
+								<?= Html::a('<i class="linecons-globe"></i><span class="title">统筹全局</span>', ['overview/index'])
 								?>
 							</li>
 
@@ -207,27 +207,27 @@ AppAsset::register($this);
 						</a>
 						<ul>
 							<li>
-								<?= Html::a('<span class="title">新建客户</span>', Url::to(['client/add'], true))
+								<?= Html::a('<span class="title">新建客户</span>', ['client/add'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">客户列表</span>', Url::to(['client/list'], true))
+								<?= Html::a('<span class="title">客户列表</span>', ['client/list'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">客户生命周期管理</span>', Url::to(['client/life'], true))
+								<?= Html::a('<span class="title">客户生命周期管理</span>', ['client/life'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">客户资料管理</span>', Url::to(['client/compose'], true))
+								<?= Html::a('<span class="title">客户资料管理</span>', ['client/compose'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">活跃客户管理</span>', Url::to(['client/data'], true))
+								<?= Html::a('<span class="title">活跃客户管理</span>', ['client/data'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">管理监控</span>', Url::to(['client/manager'], true))
+								<?= Html::a('<span class="title">管理监控</span>', ['client/manager'])
 								?>
 							</li>
 							<li>
@@ -237,7 +237,7 @@ AppAsset::register($this);
 							</a>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">导入导出</span>', Url::to(['client/tool'], true))
+								<?= Html::a('<span class="title">导入导出</span>', ['client/tool'])
 								?>
 							</li>
 						</ul>
@@ -250,15 +250,15 @@ AppAsset::register($this);
 						</a>
 						<ul>
 							<li>
-								<?= Html::a('<span class="title">收件箱</span>', Url::to(['mail/inbox'], true))
+								<?= Html::a('<span class="title">收件箱</span>', ['mail/inbox'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">写邮件</span>', Url::to(['mail/compose'], true))
+								<?= Html::a('<span class="title">写邮件</span>', ['mail/compose'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">查看邮件</span>', Url::to(['mail/message'], true))
+								<?= Html::a('<span class="title">查看邮件</span>', ['mail/message'])
 								?>
 							</li>
 						</ul>
@@ -270,15 +270,15 @@ AppAsset::register($this);
 						</a>
 						<ul>
 							<li>
-								<?= Html::a('<span class="title">追踪列表</span>', Url::to(['tracking/list'], true))
+								<?= Html::a('<span class="title">追踪列表</span>', ['tracking/list'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">邮件定位</span>', Url::to(['tracking/location'], true))
+								<?= Html::a('<span class="title">邮件定位</span>', ['tracking/location'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">状态分析</span>', Url::to(['tracking/statistics'], true))
+								<?= Html::a('<span class="title">状态分析</span>', ['tracking/statistics'])
 								?>
 							</li>
 						</ul>
@@ -290,19 +290,19 @@ AppAsset::register($this);
 						</a>
 						<ul>
 							<li>
-								<?= Html::a('<span class="title">开发信管理</span>', Url::to(['letters/index'], true))
+								<?= Html::a('<span class="title">开发信管理</span>', ['letters/index'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">新开发信</span>', Url::to(['letters/add'], true))
+								<?= Html::a('<span class="title">新开发信</span>', ['letters/add'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">群发开发信</span>', Url::to(['letters/mass'], true))
+								<?= Html::a('<span class="title">群发开发信</span>', ['letters/mass'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">信件列表</span>', Url::to(['letters/list'], true))
+								<?= Html::a('<span class="title">信件列表</span>', ['letters/list'])
 								?>
 							</li>
 						</ul>
@@ -314,16 +314,16 @@ AppAsset::register($this);
 						</a>
 						<ul>
 							<li>
-								<?= Html::a('<span class="title">产品管理</span>', Url::to(['product/index'], true))
+								<?= Html::a('<span class="title">产品管理</span>', ['product/index'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">新建产品</span>', Url::to(['product/add'], true))
+								<?= Html::a('<span class="title">新建产品</span>', ['product/add'])
 								?>
 							</li>
 							
 							<li>
-								<?= Html::a('<span class="title">生成PDF</span>', Url::to(['product/pdf'], true))
+								<?= Html::a('<span class="title">生成PDF</span>', ['product/pdf'])
 								?>
 							</li>
 						</ul>
@@ -335,11 +335,11 @@ AppAsset::register($this);
 						</a>
 						<ul>
 							<li>
-								<?= Html::a('<span class="title">操作记录</span>', Url::to(['company/record'], true))
+								<?= Html::a('<span class="title">操作记录</span>', ['company/record'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">个人操作记录</span>', Url::to(['company/self'], true))
+								<?= Html::a('<span class="title">个人操作记录</span>', ['company/self'])
 								?>
 							</li>
 						</ul>
@@ -351,15 +351,15 @@ AppAsset::register($this);
 						</a>
 						<ul>
 							<li>
-								<?= Html::a('<span class="title">下属管理</span>', Url::to(['staff/index'], true))
+								<?= Html::a('<span class="title">下属管理</span>', ['staff/index'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">添加下属账号</span>', Url::to(['staff/add'], true))
+								<?= Html::a('<span class="title">添加下属账号</span>', ['staff/add'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">下属客户</span>', Url::to(['staff/client'], true))
+								<?= Html::a('<span class="title">下属客户</span>', ['staff/client'])
 								?>
 							</li>
 						</ul>
@@ -371,15 +371,15 @@ AppAsset::register($this);
 						</a>
 						<ul>
 							<li>
-								<?= Html::a('<span class="title">报价管理</span>', Url::to(['quotation/index'], true))
+								<?= Html::a('<span class="title">报价管理</span>', ['quotation/index'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">新建报价</span>', Url::to(['quotation/new'], true))
+								<?= Html::a('<span class="title">新建报价</span>', ['quotation/new'])
 								?>
 							</li>
 							<li>
-								<?= Html::a('<span class="title">生成PDF</span>', Url::to(['quotation/pdf'], true))
+								<?= Html::a('<span class="title">生成PDF</span>', ['quotation/pdf'])
 								?>
 							</li>
 						</ul>
@@ -391,7 +391,7 @@ AppAsset::register($this);
 						</a>
 						<ul>
 							<li>
-								<?= Html::a('<span class="title">数据统计</span>', Url::to(['statistical/index'], true))
+								<?= Html::a('<span class="title">数据统计</span>', ['statistical/index'])
 								?>
 							</li>
 						</ul>
