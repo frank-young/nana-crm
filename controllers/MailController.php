@@ -9,6 +9,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use Receivemail;
+use yii\data\Pagination;
+
 
 class MailController extends Controller
 {
@@ -49,23 +51,34 @@ class MailController extends Controller
     }
 
     public function actionInbox(){
-       
+        
         $host = 'imap.qq.com';
         $mail='yangjunalns@qq.com'; 
         $password = 'jxbqtbonmoobbejd';
         $port = '993';
         $array = [];
         $obj= new receiveMail($host,$mail,$password,'imap',$port,true,false);
-        $total = $obj->get_total_emails();
-        $unread = $obj->get_unread_emails();
+        
+
         $obj->connect(); 
         if($obj->is_connected()){
-            $tot = $obj->get_total_emails(); 
-            $unread = $obj->get_unread_emails();
-            for($i=100;$i>90;$i--){
+            $pageSize = 10;
+            $request = Yii::$app->request;
+            $offset = $request->get('offset'); 
+
+            $total = $obj->get_total_emails();  /*总共邮件数量*/
+            $unread = $obj->get_unread_emails();    /*未读邮件数量*/
+
+            $currpage = $total-$offset*$pageSize;   /*当前的总量*/
+            
+            for($i=$currpage;$i>$currpage-$pageSize;$i--){
                 $head = $obj->get_email_header($i);
                 $array[$i] = $head;
             }
+            //分页
+            // $pages = new Pagination(['totalCount' =>$total, 'pageSize' => '5']);
+            // $model = $array->offset($pages->offset)->limit($pages->limit);
+            // echo $obj->listMessages();
             return $this->render('inbox',[
                     'array'=>$array,
                     'total'=>$total,

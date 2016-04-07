@@ -152,20 +152,20 @@ $this->params['breadcrumbs'][] = $this->title;
 										<td class="col-time">
 											<?php
 												$time = strtotime('now') - $value['datetime'];
-												$dayNow = date("m-d",strtotime('now'));
+												$dayNow = date("m-d", strtotime('now'));
 												$day = date("m-d",$value['datetime']);
 												$weekarray=array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
 												
-												if($dayNow==$day&&$time<24*60*60){
+												if($dayNow==$day && $time<24*60*60){
 													echo date('H:i',$value['datetime']);
 												}else if($dayNow!=$day){	//日期不相等，并且时间小于两天，就是昨天
-													if($time<=24*60*60*1){
+													if($time<=24*60*60){
 														echo "昨天";
 													}else if($time<=24*60*60*6){	//预留了5天
-														echo $weekarray[date("w",$value['datetime'])];	//输出中文星期 
+														echo $weekarray[date("w", $value['datetime'])];	//输出中文星期 
+													}else{
+														echo date("m-d",$value['datetime']);// 其他日期
 													}
-												}else{
-													echo date("m-d",$value['datetime']);// 其他日期
 												}
 												
 											?>
