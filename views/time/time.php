@@ -6,9 +6,38 @@ use  yii\grid\GridView;
 
 <h1>这是time页面</h1>
 
-<?=Html::a('刷新',['time/time'],['class'=>'btn btn-lg btn-primary'])?>   
-<h3><?=$time?>
-</h3>
+<button id="btnajax">点击</button>
+<div class="ajax"></div>
 
-
-<?=Html::a('进入index页面',['time/index'],['class'=>'btn btn-lg btn-primary'])?>   
+<script>
+		$(function(){
+		
+			 $.ajax({
+			   type: "get",
+			   url: "index.php?r=time/index",
+			   beforeSend: function(XMLHttpRequest){
+					$('<div class="quick-alert">数据加载中，请稍后</div>')
+						.insertAfter( $("#btnajax") )
+						.fadeIn('slow')
+			   },
+			   success: function(data, textStatus){
+					$(".ajax").html(data[0]);
+					// $("item",data).each(function(i, domEle){
+					// 	$(".ajax").append("<li>"+$(domEle).children("title").text()+"</li>");
+					// });
+					
+			   },
+			   complete: function(XMLHttpRequest, textStatus){
+					//HideLoading();
+						$('.quick-alert')
+						.fadeOut('slow', function() {
+						  $(this).remove();
+						});
+						alert("<?=date('Y-m-d',1221346454789)?>")
+			   },
+			   error: function(){
+					//请求出错处理
+			   }
+			 });
+	});
+	</script>   

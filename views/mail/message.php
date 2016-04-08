@@ -1,26 +1,26 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
+use yii\widgets\Pjax;
+use yii\web\View;
+
+$this->title = $head['subject'];
+$this->params['breadcrumbs'][] = $this->title;
+?>
 			<div class="page-title">
 				
 				<div class="title-env">
-					<h1 class="title">收件箱</h1>
+					<h1 class="title"><?= Html::encode($this->title) ?></h1>
 					<p class="description">方便快捷管理您的企业邮件</p>
 				</div>
 				
-					<div class="breadcrumb-env">
-					
-								<ol class="breadcrumb bc-1">
-									<li>
-							<a href="dashboard-1.html"><i class="fa-home"></i>主页</a>
-						</li>
-								<li>
+				<div class="breadcrumb-env">
 						
-										<a href="mailbox-main.html">邮箱</a>
-								</li>
-							<li class="active">
-						
-										<strong>收件箱</strong>
-								</li>
-								</ol>
-								
+					<?= Breadcrumbs::widget([
+			            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+			        ]) ?>
+							
 				</div>
 					
 			</div>
@@ -37,10 +37,10 @@
 							<!-- Email Title and Button Options -->
 							<div class="mail-single-header">
 								<h2>
-									呐呐科技：欢迎加入我们
+									<?=Html::encode($head['subject'])?>
 									<span class="badge badge-success badge-roundless pull-right upper">hello</span>
 									
-									<a href="mailbox-main.html" class="go-back">
+									<a href="javascript:history.go(-1);" class="go-back">
 										<i class="fa-angle-left"></i>
 										返回
 									</a>
@@ -52,7 +52,7 @@
 										<i class="fa-reply-all"></i>
 									</a>
 									
-									<a href="mailbox-main.html" class="btn btn-gray btn-icon">
+									<a href="index.php?r=mail/delete&id=<?=$id?>" class="btn btn-gray btn-icon">
 										<i class="fa-trash"></i>
 									</a>
 								</div>
@@ -64,9 +64,9 @@
 								<div class="mail-single-info-user dropdown">
 									<a href="#" data-toggle="dropdown">
 										<img src="images/user-3.png" class="img-circle" width="38" /> 
-										<span>Frank</span>
-										(noreply@example.com) 发给 <span>我</span> 的
-										<em class="time">2016年4月1日 07:51</em>
+										<span><?=Html::encode($head['replyToName'])?></span>
+										(<?=Html::encode($head['replyTo'])?>) 发给 <span>我</span> 的
+										<em class="time"><?=Html::encode(date("Y年m月d日 H:i",$head['datetime']))?></em>
 									</a>
 									
 									<ul class="dropdown-menu dropdown-secondary">
@@ -84,7 +84,7 @@
 										</li>
 										<li class="divider"></li>
 										<li>
-											<a href="#">
+											<a href="index.php?r=mail/delete&id=<?=$id?>">
 												<i class="fa-trash"></i>
 												删除
 											</a>
@@ -105,25 +105,33 @@
 							
 							<!-- Email Body -->
 							<div class="mail-single-body">
-								<p>欢迎加入我们，我们是呐呐科技</p>
-												
+								<?= $content?>
 							</div>
 							
+							
+
 							<!-- Email Attachments -->
 							<div class="mail-single-attachments">
+							
 								<h3>
 									<i class="linecons-attach"></i>
 									附件
 								</h3>
 								
 								<ul class="list-unstyled list-inline">
+								<?php
+									// if($arrFiles):
+	                                    // foreach($arrFiles as $key=>$value):
+	                                    // 	echo ($value=="")?"":"附件: ".$value."<br>"; 
+	                                    // 	if($value!=""):
+								?>
 									<li>
 										<a href="#" class="thumb">
 											<img src="images/attach-1.png" class="img-thumbnail" />
 										</a>
 										
 										<a href="#" class="name">
-											IMG_007.jpg
+											
 											<span>14KB</span>
 										</a>
 										
@@ -132,22 +140,11 @@
 											<a href="#">下载</a>
 										</div>
 									</li>
-									
-									<li>
-										<a href="#" class="thumb download">
-											<img src="images/attach-2.png" class="img-thumbnail" />
-										</a>
-										
-										<a href="#" class="name">
-											IMG_008.jpg
-											<span>12KB</span>
-										</a>
-										
-										<div class="links">
-											<a href="#">查看</a> - 
-											<a href="#">下载</a>
-										</div>
-									</li>
+								<?php
+											// endif;
+	          //                           endforeach;
+	                               // endif;
+								?>
 								</ul>
 							</div>
 							
@@ -238,3 +235,16 @@
 				</div>
 				
 			</section>
+
+			<script>
+				<?php $this->beginBlock('abc'); ?>
+				$(document).on('click','.pagination a',function(e){
+				    e.preventDefault();
+				    var url=$(this).attr('href');
+				    $.get(url,function(msg){
+				        //alert(msg);
+				        $('#lists').html(msg);
+				    });
+				});
+				<?php $this->endBlock();  $this->registerJs($this->blocks['abc'], View::POS_END); ?>
+			</script>

@@ -51,7 +51,8 @@ class TimeController extends Controller
 	}  
 	public function actionIndex()  
 	{  
-		$time = date("h:i:s");
-	    return $this->render('index',['time'=>$time]);  
+		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $items = ['some', 'array', 'of', 'data' => ['associative', 'array']];
+        return $items;
 	} 
 }
