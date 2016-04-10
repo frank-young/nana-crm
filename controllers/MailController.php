@@ -105,7 +105,6 @@ class MailController extends Controller
     }
     /*数据处理--JSON数据*/
     public function actionProcessing(){
-        
         $host = 'imap.qq.com';
         $mail='yangjunalns@qq.com'; 
         $password = 'jxbqtbonmoobbejd';
@@ -128,13 +127,14 @@ class MailController extends Controller
                 $head = $obj->get_email_header($i);
                 $array[$i] = $head;
             }
-
-            return $this->render('inbox',[
-                    'array'=>$array,
-                    'total'=>$total,
-                    'unread'=>$unread,
-                    'offset'=>$offset
-                ]);
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            $items = [
+                'data'=>$array,
+                'total'=>$total,
+                'unread'=>$unread,
+                'offset'=>$offset
+                ];
+            return $items;
         }
         $obj->close_mailbox(); 
     }

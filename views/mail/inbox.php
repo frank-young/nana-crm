@@ -33,99 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="mail-env">
 				
 					
-				
+					<button id="btnajax">点击</button>
+						<div class="ajax"></div>
 					<!-- mail table -->
-					<table class="table mail-table">
-					
-						<!-- mail table header -->
-						<thead>
-							<tr>
-								<th class="col-cb">
-									<input type="checkbox" class="cbr" />
-								</th>
-								<th colspan="4" class="col-header-options">
-									
-									<div class="mail-select-options">全选</div>
-									
-									<div class="mail-pagination">
-										显示 <strong>至</strong> / 共<strong> </strong> 封邮件
-										
-										<div class="next-prev">
-											<a href="index.php?r=mail/inbox&offset="><i class="fa-angle-left"></i></a>
-											<a href="index.php?r=mail/inbox&offset="><i class="fa-angle-right"></i></a>
-										</div>
-									</div>
-								</th>
-							</tr>
-						</thead>
-					
-						<!-- mail table footer -->
-						<tfoot>
-							<tr>
-								<th class="col-cb">
-									<input type="checkbox" class="cbr" />
-								</th>
-								<th colspan="4" class="col-header-options">
-									
-									<div class="mail-select-options">全选</div>
-									
-									<div class="mail-pagination">
-										显示 <strong>至 </strong> / 共<strong></strong> 封邮件
-										
-										<div class="next-prev">
-											<a href="index.php?r=mail/inbox&offset="><i class="fa-angle-left"></i></a>
-											<a href="index.php?r=mail/inbox&offset="><i class="fa-angle-right"></i></a>
-										</div>
-									</div>
-								</th>
-							</tr>
-						</tfoot>
-						
-						<!-- email list -->
-						<tbody>
-							<tr class="unread">
-								<td class="col-cb">
-									<div class="checkbox checkbox-replace">
-										<input type="checkbox" class="cbr" />
-									</div>
-								</td>
-								<td class="col-name">
-									<a href="#" class="star">
-										<i class="fa-star-empty"></i>
-									</a>
-									<a href="mailbox-message.html" class="col-name"></a>
-								</td>
-								<td class="col-subject">
-									<a href="index.php?r=mail/message&id=">
-										
-									</a>
-								</td>
-								<td class="col-options hidden-sm hidden-xs"></td>
-								<td class="col-time">
-									<?php
-										// $time = strtotime('now') - $value['datetime'];
-										// $dayNow = date("m-d", strtotime('now'));
-										// $day = date("m-d",$value['datetime']);
-										// $weekarray=array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
-										
-										// if($dayNow==$day && $time<24*60*60){
-										// 	echo date('H:i',$value['datetime']);
-										// }else if($dayNow!=$day){	//日期不相等，并且时间小于两天，就是昨天
-										// 	if($time<=24*60*60){
-										// 		echo "昨天";
-										// 	}else if($time<=24*60*60*6){	//预留了5天
-										// 		echo $weekarray[date("w", $value['datetime'])-1];	//输出中文星期 
-										// 	}else{
-										// 		echo date("m-d",$value['datetime']);// 其他日期
-										// 	}
-										// }
-									?>
-								</td>
-							</tr>	
-			
-						</tbody>
-						
-					</table>
+					<table class="table mail-table"></table>
 					
 				</div>
 				
@@ -250,8 +161,67 @@ $this->params['breadcrumbs'][] = $this->title;
 		<?php $this->endBlock() ?>  
 		<?php $this->registerJs($this->blocks['check'], \yii\web\View::POS_END); ?> 
 	</script>
+	<!-- ajax处理 -->
+	<script>
+		$(function(){
+			$('#btnajax').click(function(){
+				$.ajax({
+			   type: "get",
+			   url: "index.php?r=mail/processing",
+			   beforeSend: function(XMLHttpRequest){
+					$('<div class="quick-alert">数据加载中，请稍后</div>')
+						.insertAfter( $("#btnajax") )
+						.fadeIn('slow')
+			   },
+			   success: function(data, textStatus){
+					
+			   	var $header='<thead><tr><th class="col-cb"><div class="cbr-replaced"><div class="cbr-input"><input type="checkbox" class="cbr cbr-done"></div><div class="cbr-state"><span></span></div></div></th><th colspan="4" class="col-header-options"><div class="mail-select-options">全选</div><div class="mail-pagination">显示 <strong>至</strong> / 共<strong> '+data["total"]+'</strong> 封邮件<div class="next-prev"><a href="index.php?r=mail/inbox&offset="><i class="fa-angle-left"></i></a><a href="index.php?r=mail/inbox&offset="><i class="fa-angle-right"></i></a></div></div></th></tr></thead><!-- mail table footer --><tfoot><tr><th class="col-cb"><div class="cbr-replaced"><div class="cbr-input"><input type="checkbox" class="cbr cbr-done"></div><div class="cbr-state"><span></span></div></div></th><th colspan="4" class="col-header-options"><div class="mail-select-options">全选</div><div class="mail-pagination">显示 <strong>至 </strong> / 共<strong>'+data["total"]+'</strong> 封邮件<div class="next-prev"><a href="index.php?r=mail/inbox&offset="><i class="fa-angle-left"></i></a><a href="index.php?r=mail/inbox&offset="><i class="fa-angle-right"></i></a></div></div></th></tr></tfoot><tbody><tr id="task"></tr></tbody>';
+					$("table").html($header);
 
-		
+					for(var i=105;i>85;i--){
+						console.log(data['data'][i]);
+						var $html ='<tr class="unread"><td class="col-cb"><div class="checkbox checkbox-replace"><div class="cbr-replaced"><div class="cbr-input"><input type="checkbox" class="cbr cbr-done"></div><div class="cbr-state"><span></span></div></div></div></td><td class="col-name"><a href="#" class="star"><i class="fa-star-empty"></i></a><a href="mailbox-message.html" class="col-name">'+data['data'][i]["fromName"]+'</a></td><td class="col-subject"><a href="index.php?r=mail/message&id="'+i+'>'+data['data'][i]["subject"]+'</a></td><td class="col-options hidden-sm hidden-xs"></td><td class="col-time">'+data['data'][i]["datetime"]+'</td></tr>';
+						// $("tbody").html($html);
+						$($html)
+							.insertAfter($("#task"))
+							.fadeIn('fast');
+					}
+			   },
+			   complete: function(XMLHttpRequest, textStatus){
+					//HideLoading();
+						$('.quick-alert')
+						.fadeOut('slow', function() {
+						  $(this).remove();
+						});
+						
+			   },
+			   error: function(){
+					//请求出错处理
+					alert('出错了')
+			   }
+			 });
+			})
+			 
+	});
+	</script>   
+	<?php
+										// $time = strtotime('now') - $value['datetime'];
+										// $dayNow = date("m-d", strtotime('now'));
+										// $day = date("m-d",$value['datetime']);
+										// $weekarray=array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+										
+										// if($dayNow==$day && $time<24*60*60){
+										// 	echo date('H:i',$value['datetime']);
+										// }else if($dayNow!=$day){	//日期不相等，并且时间小于两天，就是昨天
+										// 	if($time<=24*60*60){
+										// 		echo "昨天";
+										// 	}else if($time<=24*60*60*6){	//预留了5天
+										// 		echo $weekarray[date("w", $value['datetime'])-1];	//输出中文星期 
+										// 	}else{
+										// 		echo date("m-d",$value['datetime']);// 其他日期
+										// 	}
+										// }
+									?>	
 		
 			
 		
