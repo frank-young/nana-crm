@@ -31,12 +31,71 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="col-sm-9 mailbox-right">
 				
 				<div class="mail-env">
-				
-					
 					<button id="btnajax">点击</button>
 						<div class="ajax"></div>
 					<!-- mail table -->
-					<table class="table mail-table"></table>
+					<table class="table mail-table">
+						<thead>
+							<tr>
+								<th class="col-cb">
+									<div class="cbr-replaced">
+										<div class="cbr-input">
+											<input type="checkbox" class="cbr cbr-done"></div>
+										<div class="cbr-state">
+											<span></span>
+										</div>
+									</div>
+								</th>
+								<th colspan="4" class="col-header-options">
+									<div class="mail-select-options">全选</div>
+									<div class="mail-pagination">
+										第 <strong class="mail-pagination-num"> </strong>页
+										共/<strong class="mail-pagination-total"> </strong>
+										封邮件
+										<div class="next-prev">
+											<a href="javascript:;" class="btn-prev"> <i class="fa-angle-left"></i>
+											</a>
+											<a href="javascript:;" class="btn-next"> <i class="fa-angle-right"></i>
+											</a>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<!-- mail table footer -->					
+						<tfoot>
+							<tr>
+								<th class="col-cb">
+									<div class="cbr-replaced">
+										<div class="cbr-input">
+											<input type="checkbox" class="cbr cbr-done"></div>
+										<div class="cbr-state">
+											<span></span>
+										</div>
+									</div>
+								</th>
+								<th colspan="4" class="col-header-options">
+									<div class="mail-select-options">全选</div>
+									<div class="mail-pagination">
+										第 <strong class="mail-pagination-num"> </strong>页
+										共/<strong class="mail-pagination-total"> </strong>
+										封邮件
+										<div class="next-prev">
+											<a href="javascript:;" class="btn-prev">
+												<i class="fa-angle-left"></i>
+											</a>
+											<a href="javascript:;" class="btn-next">
+												<i class="fa-angle-right"></i>
+											</a>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr id="task"></tr>
+						</tbody>
+					</table>
 					
 				</div>
 				
@@ -51,7 +110,6 @@ $this->params['breadcrumbs'][] = $this->title;
 						<i class="linecons-mail"></i>
 						<span>写邮件</span>
 					</a>
-					
 					
 					<ul class="list-unstyled mailbox-list">
 						<li class="active">
@@ -165,21 +223,39 @@ $this->params['breadcrumbs'][] = $this->title;
 	<script>
 		$(function(){
 			$('#btnajax').click(function(){
+				ajaxData();
+			})
+			$('.btn-next').click(function(){
+				var offset = parseInt($('.mail-pagination-num').html());
+				if(offset<=$('.mail-pagination-total').html()/20){
+					ajaxData('index.php?r=mail/processing&offset='+(offset+1));
+				}
+			})
+			$('.btn-prev').click(function(){
+				var offset = parseInt($('.mail-pagination-num').html());
+				if(offset!=0){
+					ajaxData('index.php?r=mail/processing&offset='+(offset-1));
+				}
+			})
+
+			function ajaxData(url='index.php?r=mail/processing'){
 				$.ajax({
 			   type: "get",
-			   url: "index.php?r=mail/processing",
+			   url: url,
 			   beforeSend: function(XMLHttpRequest){
 					$('<div class="quick-alert">数据加载中，请稍后</div>')
-						.insertAfter( $("#btnajax") )
+						.insertBefore( $("table") )
 						.fadeIn('slow')
 			   },
 			   success: function(data, textStatus){
-					
-			   	var $header='<thead><tr><th class="col-cb"><div class="cbr-replaced"><div class="cbr-input"><input type="checkbox" class="cbr cbr-done"></div><div class="cbr-state"><span></span></div></div></th><th colspan="4" class="col-header-options"><div class="mail-select-options">全选</div><div class="mail-pagination">显示 <strong>至</strong> / 共<strong> '+data["total"]+'</strong> 封邮件<div class="next-prev"><a href="index.php?r=mail/inbox&offset="><i class="fa-angle-left"></i></a><a href="index.php?r=mail/inbox&offset="><i class="fa-angle-right"></i></a></div></div></th></tr></thead><!-- mail table footer --><tfoot><tr><th class="col-cb"><div class="cbr-replaced"><div class="cbr-input"><input type="checkbox" class="cbr cbr-done"></div><div class="cbr-state"><span></span></div></div></th><th colspan="4" class="col-header-options"><div class="mail-select-options">全选</div><div class="mail-pagination">显示 <strong>至 </strong> / 共<strong>'+data["total"]+'</strong> 封邮件<div class="next-prev"><a href="index.php?r=mail/inbox&offset="><i class="fa-angle-left"></i></a><a href="index.php?r=mail/inbox&offset="><i class="fa-angle-right"></i></a></div></div></th></tr></tfoot><tbody><tr id="task"></tr></tbody>';
-					$("table").html($header);
 
-					for(var i=105;i>85;i--){
-						console.log(data['data'][i]);
+			   		$i = parseInt(data['offset']);
+			   		
+					$('.mail-pagination-num').html($i);
+					$('.mail-pagination-total').html(data['total']);
+					var offset = data['offset'];
+				
+					for(var i=data["currpage"];i>data["currpage"]-20;i--){
 						var $html ='<tr class="unread"><td class="col-cb"><div class="checkbox checkbox-replace"><div class="cbr-replaced"><div class="cbr-input"><input type="checkbox" class="cbr cbr-done"></div><div class="cbr-state"><span></span></div></div></div></td><td class="col-name"><a href="#" class="star"><i class="fa-star-empty"></i></a><a href="mailbox-message.html" class="col-name">'+data['data'][i]["fromName"]+'</a></td><td class="col-subject"><a href="index.php?r=mail/message&id="'+i+'>'+data['data'][i]["subject"]+'</a></td><td class="col-options hidden-sm hidden-xs"></td><td class="col-time">'+data['data'][i]["datetime"]+'</td></tr>';
 						// $("tbody").html($html);
 						$($html)
@@ -200,7 +276,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					alert('出错了')
 			   }
 			 });
-			})
+			}
 			 
 	});
 	</script>   
