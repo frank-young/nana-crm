@@ -5,7 +5,7 @@ use yii\widgets\Breadcrumbs;
 use yii\widgets\Pjax;
 use yii\web\View;
 
-$this->title = $head['subject'];
+$this->title = '收件箱';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 			<div class="page-title">
@@ -30,136 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="row">
 					
 					<!-- Email Single -->
-					<div class="col-sm-9 mailbox-right">
-						
+					<div class="col-sm-9 mailbox-right" id="ajax-content">
 						<div class="mail-single">
-							
-							<!-- Email Title and Button Options -->
-							<div class="mail-single-header">
-								<h2>
-									<?=Html::encode($head['subject'])?>
-									<span class="badge badge-success badge-roundless pull-right upper">hello</span>
-									
-									<a href="javascript:history.go(-1);" class="go-back">
-										<i class="fa-angle-left"></i>
-										返回
-									</a>
-								</h2>
-								
-								<div class="mail-single-header-options">
-									<a href="mailbox-compose.html" class="btn btn-gray btn-icon">
-										<span>回复</span>
-										<i class="fa-reply-all"></i>
-									</a>
-									
-									<a href="index.php?r=mail/delete&id=<?=$id?>" class="btn btn-gray btn-icon">
-										<i class="fa-trash"></i>
-									</a>
-								</div>
-							</div>
-							
-							<!-- Email Info From/Reply -->
-							<div class="mail-single-info">
-								
-								<div class="mail-single-info-user dropdown">
-									<a href="#" data-toggle="dropdown">
-										<img src="images/user-3.png" class="img-circle" width="38" /> 
-										<span><?=Html::encode($head['replyToName'])?></span>
-										(<?=Html::encode($head['replyTo'])?>) 发给 <span>我</span> 的
-										<em class="time"><?=Html::encode(date("Y年m月d日 H:i",$head['datetime']))?></em>
-									</a>
-									
-									<ul class="dropdown-menu dropdown-secondary">
-										<li>
-											<a href="#">
-												<i class="fa-reply"></i>
-												回复
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa-forward"></i>
-												标记
-											</a>
-										</li>
-										<li class="divider"></li>
-										<li>
-											<a href="index.php?r=mail/delete&id=<?=$id?>">
-												<i class="fa-trash"></i>
-												删除
-											</a>
-										</li>
-									</ul>
-								</div>
-								
-								<div class="mail-single-info-options">
-									<a href="#" class="star starred">
-										<i class="fa-star-empty"></i>
-									</a>
-									<a href="#">
-										<i class="linecons-attach"></i>
-									</a>
-								</div>
-								
-							</div>
-							
-							<!-- Email Body -->
-							<div class="mail-single-body">
-								<?= $content?>
-							</div>
-							
-							
-
-							<!-- Email Attachments -->
-							<div class="mail-single-attachments">
-							
-								<h3>
-									<i class="linecons-attach"></i>
-									附件
-								</h3>
-								
-								<ul class="list-unstyled list-inline">
-								<?php
-									// if($arrFiles):
-	                                    // foreach($arrFiles as $key=>$value):
-	                                    // 	echo ($value=="")?"":"附件: ".$value."<br>"; 
-	                                    // 	if($value!=""):
-								?>
-									<li>
-										<a href="#" class="thumb">
-											<img src="images/attach-1.png" class="img-thumbnail" />
-										</a>
-										
-										<a href="#" class="name">
-											
-											<span>14KB</span>
-										</a>
-										
-										<div class="links">
-											<a href="#">查看</a> - 
-											<a href="#">下载</a>
-										</div>
-									</li>
-								<?php
-											// endif;
-	          //                           endforeach;
-	                               // endif;
-								?>
-								</ul>
-							</div>
-							
-							<div class="mail-single-reply">
-								
-								<div class="fake-form">
-									<div>
-										<a href="extra-portlets.html">回复</a> 或者 <a href="extra-portlets.html">转寄</a> 这封邮件...
-									</div>
-								</div>
-								
-							</div>
-							
+							<div id="task"></div>
 						</div>
-						
 						
 					</div>
 					
@@ -248,3 +122,78 @@ $this->params['breadcrumbs'][] = $this->title;
 				});
 				<?php $this->endBlock();  $this->registerJs($this->blocks['abc'], View::POS_END); ?>
 			</script>
+			<script>
+	<?php $this->beginBlock('ajaxMailContent') ?>
+		$(function(){
+			function ajaxContent($id){
+				$.ajax({
+			   type: "get",
+			   url: 'index.php?r=mail/detail&id='+$id,
+			   beforeSend: function(XMLHttpRequest){
+					$taskText = ('<div class="quick-alert" style="text-align:center;width:200px;margin: 0 auto;"><i class="fa fa-spinner fa-spin"></i> 努力加载数据中,请稍后...</div>')
+						 $("#task").html($taskText)
+					show_loading_bar({
+						pct: 90,
+						delay: 4,
+					});
+			   },
+			   success: function(data, textStatus){
+			   		$('#task').siblings().remove();
+			  		console.log(data['head']);
+						var $html ='<div class="mail-single-header"><h2>'+data['head']['subject']+'<span class="badge badge-success badge-roundless pull-right upper">hello</span> <a href="javascript:history.go(-1);" class="go-back"><i class="fa-angle-left"></i> 返回</a></h2><div class="mail-single-header-options"><a href="mailbox-compose.html" class="btn btn-gray btn-icon"><span>回复</span> <i class="fa-reply-all"></i></a> <a href="#"  class="btn btn-gray btn-icon btn-delete"><i class="fa-trash"></i></a></div></div><div class="mail-single-info"><div class="mail-single-info-user dropdown"><a href="#" data-toggle="dropdown"><img src="images/user-3.png" class="img-circle" width="38"> <span></span> ('+data['head']['from']+') 发给 <span>我</span> 的 <em class="time">'+data['head']['datetime']+'</em></a><ul class="dropdown-menu dropdown-secondary"><li><a href="#"><i class="fa-reply"></i> 回复</a></li><li><a href="#"><i class="fa-forward"></i> 标记</a></li><li class="divider"></li><li><a href="#" class="btn-delete"><i class="fa-trash"></i> 删除</a></li></ul></div><div class="mail-single-info-options"><a href="#" class="star starred"><i class="fa-star-empty"></i></a> <a href="#"><i class="linecons-attach"></i></a></div></div><div class="mail-single-body">'+data['content']+'</div><div class="mail-single-attachments"><h3><i class="linecons-attach"></i> 附件</h3><ul class="list-unstyled list-inline"><li><a href="#" class="thumb"><img src="images/attach-1.png" class="img-thumbnail"></a> <a href="#" class="name"><span>14KB</span></a><div class="links"><a href="#">查看</a> - <a href="#">下载</a></div></li></ul></div><div class="mail-single-reply"><div class="fake-form"><div><a href="extra-portlets.html">回复</a> 或者 <a href="extra-portlets.html">转寄</a> 这封邮件...</div></div></div>';
+						$($html)
+							.insertAfter($("#task"))
+			   },
+			   complete: function(XMLHttpRequest, textStatus){
+					// 进度条加载
+					show_loading_bar(100);
+					// 隐藏旋转加载
+					$('.quick-alert')
+						.fadeOut('slow', function() {
+						  $(this).remove();
+						});
+			   },
+			   error: function(){
+					//请求出错处理
+					alert('出错了')
+			   }
+			 });
+			}
+			ajaxContent(<?=$id?>);
+			// function ajaxDelete(id){
+			// 	$.ajax({
+			//    type: "get",
+			//    url: 'index.php?r=mail/delete&id='+id,
+			//    beforeSend: function(XMLHttpRequest){
+			// 		$taskText = ('<div class="quick-alert" style="text-align:center;width:200px;margin: 0 auto;"><i class="fa fa-spinner fa-spin"></i> 正在删除,请稍后...</div>')
+			// 			 $("#task").html($taskText)
+			// 		show_loading_bar({
+			// 			pct: 90,
+			// 			delay: 4,
+			// 		});
+			//    },
+			//    success: function(data, textStatus){
+			//    		alert('success');
+			//    },
+			//    complete: function(XMLHttpRequest, textStatus){
+			//    		// 隐藏旋转加载
+			// 		$('.quick-alert')
+			// 			.fadeOut('slow', function() {
+			// 			  $(this).remove();
+			// 			});
+			//    },
+			//    error: function(){
+			// 		//请求出错处理
+			// 		alert('出错了')
+			//    }
+			//  });
+			// }
+			// $('.btn-delete').on('click',function(){
+			// 	alert('fdsa')
+			// 	ajaxDelete(<?=$id?>);
+			// })
+	});
+	<?php $this->endBlock() ?>  
+	<?php $this->registerJs($this->blocks['ajaxMailContent'], \yii\web\View::POS_END); ?> 
+	</script>
+ 

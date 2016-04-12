@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="col-sm-9 mailbox-right">
 				
 				<div class="mail-env">
-					<button id="btnajax">点击</button>
 						<div class="ajax"></div>
 					<!-- mail table -->
 					<table class="table mail-table">
@@ -93,7 +92,13 @@ $this->params['breadcrumbs'][] = $this->title;
 							</tr>
 						</tfoot>
 						<tbody>
-							<tr id="task"></tr>
+							<tr id="task">
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
 						</tbody>
 					</table>
 					
@@ -169,6 +174,71 @@ $this->params['breadcrumbs'][] = $this->title;
 			
 		</div>
 	</section>	
+	
+	<!-- ajax处理 -->
+	<script>
+	<?php $this->beginBlock('ajaxMail') ?>
+		$(function(){
+			$('.btn-next').click(function(){
+				var offset = parseInt($('.mail-pagination-num').html());
+				if(offset<=$('.mail-pagination-total').html()/20){
+					ajaxData('index.php?r=mail/processing&offset='+(offset+1));
+				}
+			})
+			$('.btn-prev').click(function(){
+				var offset = parseInt($('.mail-pagination-num').html());
+				if(offset!=0){
+					ajaxData('index.php?r=mail/processing&offset='+(offset-1));
+				}
+			})
+
+			function ajaxData(url='index.php?r=mail/processing'){
+				$.ajax({
+			   type: "get",
+			   url: url,
+			   beforeSend: function(XMLHttpRequest){
+					$taskText = ('<div class="quick-alert" style="text-align:center;width:200px;margin: 0 auto;"><i class="fa fa-spinner fa-spin"></i> 努力加载数据中,请稍后...</div>')
+						 $("#task td:nth-child(3)").html($taskText)
+					show_loading_bar({
+						pct: 90,
+						delay: 6,
+					});
+			   },
+			   success: function(data, textStatus){
+			   		$('#task').siblings().remove();
+			   		$i = parseInt(data['offset']);
+			   		
+					$('.mail-pagination-num').html($i);
+					$('.mail-pagination-total').html(data['total']);
+					var offset = data['offset'];
+				
+					for(var i=data["currpage"]-19;i<=data["currpage"];i++){
+						var $html ='<tr class="unread"><td class="col-cb"><div class="checkbox checkbox-replace"><div class="cbr-replaced"><div class="cbr-input"><input type="checkbox" class="cbr cbr-done"></div><div class="cbr-state"><span></span></div></div></div></td><td class="col-name"><a href="#" class="star"><i class="fa-star-empty"></i></a><a href="index.php?r=mail/message&id='+i+'" class="col-name">'+data['data'][i]["fromName"]+'</a></td><td class="col-subject"><a href="index.php?r=mail/message&id='+i+'">'+data['data'][i]["subject"]+'</a></td><td class="col-options hidden-sm hidden-xs"></td><td class="col-time">'+data['data'][i]["datetime"]+'</td></tr>';
+						$($html)
+							.insertAfter($("#task"))
+							.fadeIn('fast');
+					}
+			   },
+			   complete: function(XMLHttpRequest, textStatus){
+					// 进度条加载
+					show_loading_bar(100);
+					// 隐藏旋转加载
+					$('.quick-alert')
+						.fadeOut('slow', function() {
+						  $(this).remove();
+						});
+			   },
+			   error: function(){
+					//请求出错处理
+					alert('出错了')
+			   }
+			 });
+			}
+			 	ajaxData();
+	});
+	<?php $this->endBlock() ?>  
+	<?php $this->registerJs($this->blocks['ajaxMail'], \yii\web\View::POS_END); ?> 
+	</script>
 	<script type="text/javascript">
 		<?php $this->beginBlock('check') ?>  
 
@@ -218,86 +288,25 @@ $this->params['breadcrumbs'][] = $this->title;
 		});
 		<?php $this->endBlock() ?>  
 		<?php $this->registerJs($this->blocks['check'], \yii\web\View::POS_END); ?> 
-	</script>
-	<!-- ajax处理 -->
-	<script>
-		$(function(){
-			$('#btnajax').click(function(){
-				ajaxData();
-			})
-			$('.btn-next').click(function(){
-				var offset = parseInt($('.mail-pagination-num').html());
-				if(offset<=$('.mail-pagination-total').html()/20){
-					ajaxData('index.php?r=mail/processing&offset='+(offset+1));
-				}
-			})
-			$('.btn-prev').click(function(){
-				var offset = parseInt($('.mail-pagination-num').html());
-				if(offset!=0){
-					ajaxData('index.php?r=mail/processing&offset='+(offset-1));
-				}
-			})
-
-			function ajaxData(url='index.php?r=mail/processing'){
-				$.ajax({
-			   type: "get",
-			   url: url,
-			   beforeSend: function(XMLHttpRequest){
-					$('<div class="quick-alert">数据加载中，请稍后</div>')
-						.insertBefore( $("table") )
-						.fadeIn('slow')
-			   },
-			   success: function(data, textStatus){
-
-			   		$i = parseInt(data['offset']);
-			   		
-					$('.mail-pagination-num').html($i);
-					$('.mail-pagination-total').html(data['total']);
-					var offset = data['offset'];
-				
-					for(var i=data["currpage"];i>data["currpage"]-20;i--){
-						var $html ='<tr class="unread"><td class="col-cb"><div class="checkbox checkbox-replace"><div class="cbr-replaced"><div class="cbr-input"><input type="checkbox" class="cbr cbr-done"></div><div class="cbr-state"><span></span></div></div></div></td><td class="col-name"><a href="#" class="star"><i class="fa-star-empty"></i></a><a href="mailbox-message.html" class="col-name">'+data['data'][i]["fromName"]+'</a></td><td class="col-subject"><a href="index.php?r=mail/message&id="'+i+'>'+data['data'][i]["subject"]+'</a></td><td class="col-options hidden-sm hidden-xs"></td><td class="col-time">'+data['data'][i]["datetime"]+'</td></tr>';
-						// $("tbody").html($html);
-						$($html)
-							.insertAfter($("#task"))
-							.fadeIn('fast');
-					}
-			   },
-			   complete: function(XMLHttpRequest, textStatus){
-					//HideLoading();
-						$('.quick-alert')
-						.fadeOut('slow', function() {
-						  $(this).remove();
-						});
-						
-			   },
-			   error: function(){
-					//请求出错处理
-					alert('出错了')
-			   }
-			 });
-			}
-			 
-	});
-	</script>   
+	</script>  
 	<?php
-										// $time = strtotime('now') - $value['datetime'];
-										// $dayNow = date("m-d", strtotime('now'));
-										// $day = date("m-d",$value['datetime']);
-										// $weekarray=array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
-										
-										// if($dayNow==$day && $time<24*60*60){
-										// 	echo date('H:i',$value['datetime']);
-										// }else if($dayNow!=$day){	//日期不相等，并且时间小于两天，就是昨天
-										// 	if($time<=24*60*60){
-										// 		echo "昨天";
-										// 	}else if($time<=24*60*60*6){	//预留了5天
-										// 		echo $weekarray[date("w", $value['datetime'])-1];	//输出中文星期 
-										// 	}else{
-										// 		echo date("m-d",$value['datetime']);// 其他日期
-										// 	}
-										// }
-									?>	
+		// $time = strtotime('now') - $value['datetime'];
+		// $dayNow = date("m-d", strtotime('now'));
+		// $day = date("m-d",$value['datetime']);
+		// $weekarray=array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+		
+		// if($dayNow==$day && $time<24*60*60){
+		// 	echo date('H:i',$value['datetime']);
+		// }else if($dayNow!=$day){	//日期不相等，并且时间小于两天，就是昨天
+		// 	if($time<=24*60*60){
+		// 		echo "昨天";
+		// 	}else if($time<=24*60*60*6){	//预留了5天
+		// 		echo $weekarray[date("w", $value['datetime'])-1];	//输出中文星期 
+		// 	}else{
+		// 		echo date("m-d",$value['datetime']);// 其他日期
+		// 	}
+		// }
+	?>	
 		
 			
 		

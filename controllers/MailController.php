@@ -58,31 +58,10 @@ class MailController extends Controller
         return $this->render('compose');
     }
     public function actionMessage()
-    {
-        $host = 'imap.qq.com';
-        $mail='yangjunalns@qq.com'; 
-        $password = 'jxbqtbonmoobbejd';
-        $port = '993';
-        $array = [];
-        $obj= new receiveMail($host,$mail,$password,'imap',$port,true,false);
-
-        $obj->connect(); 
-
-        if($obj->is_connected()){
-            $request = Yii::$app->request;
-            $i = $request->get('id'); 
-            $head = $obj->get_email_header($i);
-            $content = $obj->get_email_body($i); 
-            // $arrFiles=$obj->get_attachments($i,"./"); 
-                                
-            return $this->render('message',[
-                    'head'=>$head,
-                    'content'=>$content,
-                    'id'=>$i
-                    // 'arrFiles'=>$arrFiles
-                ]);
-        }
-        $obj->close_mailbox(); 
+    {   
+        $request = Yii::$app->request;
+        $id = $request->get('id'); 
+        return $this->render('message',['id'=>$id]);
     }
     public function actionDelete(){
         
@@ -136,6 +115,33 @@ class MailController extends Controller
                 'unread'=>$unread,
                 'offset'=>$offset,
                 'currpage'=>$currpage
+                ];
+            return $items;
+        }
+        $obj->close_mailbox(); 
+    }
+    /*内容处理--JSON数据*/
+    public function actionDetail(){
+        $host = 'imap.qq.com';
+        $mail='yangjunalns@qq.com'; 
+        $password = 'jxbqtbonmoobbejd';
+        $port = '993';
+        $array = [];
+        $obj= new receiveMail($host,$mail,$password,'imap',$port,true,false);
+
+        $obj->connect(); 
+
+        if($obj->is_connected()){
+            $request = Yii::$app->request;
+            $i = $request->get('id'); 
+            $head = $obj->get_email_header($i);
+            $content = $obj->get_email_body($i); 
+            // $arrFiles=$obj->get_attachments($i,"./"); 
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            $items = [
+                'head'=>$head,
+                'content'=>$content,
+                'id'=>$i
                 ];
             return $items;
         }
