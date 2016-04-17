@@ -192,7 +192,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				}
 			})
 
-			function ajaxData(url='index.php?r=mail/processing'){
+			function ajaxData(url){
 				$.ajax({
 			   type: "get",
 			   url: url,
@@ -234,7 +234,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			   }
 			 });
 			}
-			 	ajaxData();
+			 	ajaxData('index.php?r=mail/processing');
 	});
 	<?php $this->endBlock() ?>  
 	<?php $this->registerJs($this->blocks['ajaxMail'], \yii\web\View::POS_END); ?> 
